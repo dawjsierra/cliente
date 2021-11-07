@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio2 DOM</title>
+
+        <style type="text/css">
+        .oculto{display:none;}
+        .visible{display:inline;}
+        /*clase visible y clase oculto*/
+        </style>
+
+        <script type="text/javascript">
+        function muestra(){
+            var texto = document.getElementById("adicional");
+            texto.className="visible";
+
+            var enlace = document.getElementById("enlace");
+            enlace.className="oculto";
+        }
+        </script>
+    </head>
+
+    <body>
+        <p id="texto">Ejercicio 2 <span id="adicional" class="oculto">Segunda parte</span></p>
+        <a id="enlace" href="#" onclick="muestra()">Seguir leyendo</a>
+    </body>
+</html>

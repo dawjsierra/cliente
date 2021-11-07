@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ejercicios de nodos</title>
+    </head>
+    <body>
+        <p id="provisional">Este texto es provisional</p>
+        <script>
+            var parrafo=document.createElement("p");
+            var contenido = document.createTextNode("Hola Mundo");
+            parrafo.appendChild(contenido);
+            document.body.appendChild(parrafo);
+
+            var parrafo2 = document.getElementById("provisional");
+            parrafo2.parentNode.removeChild(parrafo2);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 3 DOM</title>
+        <script type="text/javascript">
+        function insertar(){
+            var lineas = document.getElementsByTagName("li");
+            var numerosLi = lineas.length +1;
+
+            var elemento = "Elemento "+numerosLi;
+            //creamos el texto a introducir
+            var lista = document.getElementById("lista");
+            //en var lista introducimos el elemento que tiene el id lista
+            var linea = document.createElement("li");
+            //creamos el elemento li
+            var texto = document.createTextNode(elemento);
+            //creamos el nodo de texto y le metemos que hemos formado antes
+            linea.appendChild(texto);
+            //linea (li) tiene un hijo (texto)
+            lista.appendChild(linea);
+            //lista (ul) ahora tiene un hijo linea (li)
+        }
+        </script>
+    </head>
+    <body>
+        <ul id="lista">
+            <li>Elemento 1</li>
+            <li>Elemento 2</li>
+            <li>Elemento 3</li>
+            <li>Elemento 4</li>
+        </ul>
+        <input type="button" value="insertar elemento" onclick="insertar();">
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRUEBAS FORMULARIOS</title>
+        <meta charset="UTF-8">
+        <script>
+            function mostrar(){
+                /*var area = document.getElementById("area").value;
+                alert(area)*/
+
+                var dia = document.formulario.dias.value;
+                alert(dia);
+            }
+        </script>
+    </head>
+    <body>
+        <form id="formulario" name="formulario">
+            <label>Texto: </label><input type="text" name="texto" id="texto"><br/>
+            <textarea name="area" id="area" col="60" rows="10"></textarea><br/>
+            <!--RADIOBUTTON-->
+            <input type="radio" name="dias" value="lunes">Lunes<br/>
+            <input type="radio" name="dias" value="martes">Martes<br/>
+            <input type="radio" name="dias" value="miercoles">Miercoles<br/>
+            <!--CHECKBOX-->
+            <label for="hijos">NUMERO HIJOS</label><br/>
+            <input type="checkbox" name="hijos" value="0">0 hijos<br/>
+            <input type="checkbox" name="hijos" value="1">1 hijos<br/>
+            <input type="checkbox" name="hijos" value="2">2 hijos<br/>
+            <input type="checkbox" name="hijos" value="3">3 hijos<br/>
+            <!--SELECT-->
+            <select name="opciones" id="lista">
+                <option value="1">Primer valor</option>
+                <option value="2">Segundo valor</option>
+                <option value="3">Tercer valor</option>
+            </select><br/>
+            <!--BOTON DE ENVIO-->
+            <input type="button" id="boton1" value="mostrar" onclick="mostrar()">
+        </form>
+        <script></script>
+    </body>
+</html>

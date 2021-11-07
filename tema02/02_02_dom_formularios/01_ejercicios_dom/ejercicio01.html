@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <title>Ejercicio01 DOM</title>
+    </head>
+    <body>
+        <p>PruebaA
+            <a href="http://prueba">Enlace A</a>
+            Prueba B
+            <a href="http://prueba2">Enlace B</a>
+            Prueba C
+        </p>
+
+        <p>PruebaD
+            <a href="http://prueba">Enlace C</a>
+            Prueba E
+            <a href="http://prueba3">Enlace D</a>
+            Prueba F
+        </p>
+
+        <p>PruebaG
+            <a href="http://prueba">Enlace G</a>
+            Prueba H
+            <a href="http://prueba4">Enlace H</a>
+            Prueba I
+            <a href="http://prueba5">Enlace I</a>
+            Prueba J
+        </p>
+
+        <script>
+            //a) Numero de enlaces que tiene la página
+            var enlaces = document.getElementsByTagName("a");
+            var numEnlaces = enlaces.length;
+            document.write("NUMERO DE ENLACES: "+numEnlaces+"<br/>");
+
+            //b) Direccion a la que enlaza el penultimo enlace
+            document.write("DIRECCION QUE ENLAZA EL PENULTIMO ENLACE: "+enlaces[enlaces.length-2]+"<br/>");
+
+            //c) Numero de enlaces que enlazan a http://prueba
+            var contador = 0;
+            for(var i = 0; i<enlaces.length;i++){
+                if(enlaces[i]=="http://prueba" || enlaces[i]=="http://prueba/"){
+                    contador++;
+                }
+            }
+
+            document.write("ENLACES A PRUEBA: "+contador+"<br/>"); 
+
+            //d) Numero de enlaces del tercer parrafo
+            var parrafos = document.getElementsByTagName("p")[2];
+            var enlacesP3 = parrafos.getElementsByTagName("a");
+            var numeroEnlaces = enlacesP3.length;
+            document.write("ENLACES EN TERCER PARRAFO: "+numeroEnlaces);
+
+        </script>
+    </body>
+</html>

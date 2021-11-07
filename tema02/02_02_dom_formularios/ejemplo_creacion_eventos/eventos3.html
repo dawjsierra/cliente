@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="utf-8">
+        <title>Pruebas de eventos 3</title>
+        <script>
+            function cambioParrafo3(){
+                var p3=document.getElementById("parrafo3");
+                
+                if (p3.style.color=="black"||p3.style.color==""){
+                    p3.style.color="green";
+                }else{
+                    p3.style.color="black";
+                }
+                p3.style.fontSize="2rem";
+                p3.textContent="Este mensaje es nuevo";
+            }
+
+            function mensaje(){
+                alert("Bloque de div");
+            }
+            function mensaje2(){
+                alert("Sigo estado en el bloque de div");
+            }
+
+        </script>
+    </head>
+    <body>
+        <!-- eventos dentro de código HTML -->
+        <p id="parrafo1" onclick="alert('Me has pulsado')">Pulsa aquí para mostrar un mensaje</p>
+        <p id="parrafo2" onmouseover="document.getElementById('parrafo2').style.color='blue'" onmouseout="this.style.color='black'" >Cambia a color azul al pasar sobre mí.</p>
+        <p id="parrafo3">Pulsa aquí y cambiaré el color a verde y el texto</p>
+        <div id="division1">
+            <p id="parrafo4">Esto es un párrafo con <b id="n1">negrita</b></p>
+        </div>
+
+        <!-- Eventos sólo con Javascript -->
+        <script>
+            document.getElementById("parrafo3").onclick=cambioParrafo3;
+
+            //para un mismo evento hacemos varias funciones
+            document.getElementById("division1").addEventListener("click",mensaje,false);
+            document.getElementById("division1").addEventListener("click",mensaje2,false);
+
+        </script>
+
+    </body>
+</html>

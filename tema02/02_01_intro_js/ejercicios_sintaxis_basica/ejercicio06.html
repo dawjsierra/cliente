@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>EJERCICIOS DE PRUEBA</title>
+    </head>
+    <body>
+        <script>
+            
+            for(var i = 9; i<22; i++){  //for horas
+                horas = i;  
+                if(horas <10){  //horas con dos digitos
+                    horas = "0" + horas;
+                }
+                for(var j = 00; j<60; j+=30){   //for minutos
+                    minutos = j; 
+                    if(minutos < 10){   //minutos con dos digitos
+                        minutos = "0" + minutos;
+                    }
+
+                    document.write(horas+":"+minutos+" h <br/>");
+                }
+            }
+
+        </script>
+    </body>
+</html>

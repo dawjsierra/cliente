@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ExpresionesRegulares</title>
+    </head>
+    <body>
+        <script>
+            var cadena = "abc1Hola a abc2bbtodos";
+            var ex1=/abc[0-9]/g; // /g -->  busqueda global en toda la cadena
+
+            /*
+            //devuelve la cadena encontrada
+            document.write(ex1.exec(cadena)+"<br/>");
+            //var resultado = ex1.exec(cadena);
+            document.write(ex1.exec("abc22")+"<br/>");
+            
+            //devuelve true/false si lo encuentra
+            document.write(ex1.test(cadena)+"<br/>");
+
+            //busca al final de la cadena
+            var ex2=/todos$/;
+            document.write(ex2.test(cadena)+"<br/>");
+            alert(ex2.test(cadena));
+
+            //crea un array con los coincidentes
+            alert(cadena.match(ex1));
+            var array=cadena.match(ex1);
+
+            */
+
+            //devolver la posicion en la cadena
+            alert(cadena.search(ex1));
+
+            //se puede meter directamente el patron
+            alert(cadena.search(/c1/));
+
+            //crear un array segun un caracter indicado
+            //en este caso, cuando econtrase un espacio (caracter indicado) lo guardaria en un array, todo lo que hay antes. Si sigue y encuentra otro, pues todo lo que habia hasta el otro espacio encontrado.
+            alert(cadena.split(" "));
+            //probamos con otro patron
+            alert(cadena.split(ex1));
+            //con un array
+            var resultado2 = cadena.split(ex1);
+            alert(resultado2[1]);
+
+
+            /*
+            Con el metodo test, buscar dos apariciones seguidas del caracter b. Usando caracteres especiales
+            */
+
+            var parteb = /b{2}/;
+            alert(parteb.test(cadena));
+
+
+
+            
+        </script>
+    </body>
+</html>

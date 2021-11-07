@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>EJERCICIOS DE PRUEBA</title>
+    </head>
+    <body>
+        <script>
+            for(var i = 9; i<=21; i++){  //for horas
+                for(var j = 00; j<60; j+=5){   //for minutos
+                    if(i==21){
+                        document.write(i+":"+j+" h <br/>");
+                        break; //si son las 21 deja de contar minutos, sale del bucle
+                    }
+                    document.write(i+":"+j+" h <br/>");
+                }
+                document.write("<br/>"); //separador de horas
+            }
+        </script>
+    </body>
+</html>

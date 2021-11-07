@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 5 DOM</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript">
+            function enviar(){
+                var respuesta = document.getElementById("respuesta").value;
+
+                if(respuesta == "Pedro Sanchez"){
+                    var resu=document.getElementById("respuesta");
+                    var texto = respuesta;
+                    resultado.appendChild(contenido);
+                }else if(respuesta!= "Pedro Sanchez"){
+                    respuesta.value="Intentalo otra vez...";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h4>Pregunta</h4>
+        <p>¿Quien es el presidente de España?</p>
+        <input type="text" id="respuesta" value="responda aqui">
+        <button type="button" onclick="enviar()">enviar</button>
+        <p><div id="resultado"></div></p>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            //a) numero de telefono nacional sin espacios
+            var cadena = "976886543";
+            var patronTlf=/9[0-9]{8}/;
+            alert(patronTlf.exec(cadena));
+
+
+            //b) Fecha con formato dd/mm/yyyy (no validar mayor de 31 días ni mayor de 12 meses)
+            var cadena2= "06/02/1998";
+            var patronFecha=/[0-3][0-9]\/[0-1][0-9]\/[0-2][0-9]{3}/;
+            alert(patronFecha.exec(cadena2));
+
+            //Código postal (5 dígitos)
+            var cadena3 = "50180";
+            var patronCP = /[0-9]{5}/;
+            alert(patronCP.exec(cadena3));
+            var encontrado = patronCP.test(cadena3);ç
+            //test --> variable bool
+            if(encontrado){
+                alert("ENCONTRADO!!");
+            }else{
+                alert("NO");
+            }
+
+
+        </script>
+    </body>
+</html>
