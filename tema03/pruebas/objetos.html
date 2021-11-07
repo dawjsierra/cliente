@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRUEBAS CON OBJETOS</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            //creacion de objeto con pares clave-valor
+            var persona ={
+                nombre: "Luis",
+                apellidos:"Martinez Campo",
+                hijos: 2
+            }
+            persona.ciudad="Zaragoza";
+            //hemos añadido a ese objeto un nuevo par clave-valor
+            alert(persona.ciudad);
+            alert(persona.hijos);
+            persona.hijos=3;
+            //cambiamos hijos de 2 a 3
+            alert(persona.hijos);
+
+
+            //crear funciones constructoras de objetos (igual a crear una clase con JS)
+            function Persona(nombre, apellidos){
+                this.nombre = nombre;
+                this.apellidos = apellidos;
+            }
+
+            var persona1 = new Persona();
+            persona1.nombre="Juan";
+            persona1.apellidos="Perez Gonzalez";
+
+            //EJERCICIO: Añadir propiedad ciudad y mostrar con un alert: "Hola me llamo xxxx y de apellidos xxx. Mi ciudad es xxxxx"
+
+            persona1.ciudad="Barcelona";
+            
+            alert("Hola me llamo "+persona1.nombre+" y de apellidos "+persona1.apellidos+". Mi ciudad es "+persona1.ciudad);
+        </script>
+    </body>
+</html>
