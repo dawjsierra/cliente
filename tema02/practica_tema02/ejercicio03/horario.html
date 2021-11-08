@@ -6,8 +6,9 @@
         <script src="horario.js"></script>
     </head>
     <body>
+        <h1>GIMNASIO</h1><br/>
         <h2>HORARIO ACTIVIDADES GIMASIO</h2>
-
+        <!--Tabla de actividades con horas y dias a mano-->
         <table id="actividades">
             <tbody>
                 <tr>
@@ -40,8 +41,10 @@
             </tbody>
         </table>
         <br/>
+        
         <h2>HORARIO FISIOS</h2>
-        <table border="1" id="fisios">
+        <!--Tabla de fisios con horas y dias a mano-->
+        <table id="fisios">
             <tbody>
                 <tr>
                     <th></th>
@@ -78,12 +81,10 @@
                 <tr>
                     <td>19:15 - 20:45</td>
                 </tr>
-                <tr>
-                    <td>20:45 - 21:15</td>
-                </tr>
             </tbody>
         </table>
         <script>
+            //Llamada a la función init, encargada de generar tablas
             init();
         </script>
     </body>

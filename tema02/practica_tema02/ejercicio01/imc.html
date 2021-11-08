@@ -8,6 +8,7 @@
         <h1>Calcula tu IMC</h1><br/>
         
         <br/>
+        <!--Escribimos la lista con los parámetros-->
         <ul>
             <li> - 16.00: INFRAPESO (delgadez severa)</li>
             <li> 16.00 - 16.99: INFRAPESO (delgadez moderada)</li>
@@ -20,25 +21,32 @@
         </ul>
 
         <script>
+            //Si no es un numero lo va a pedir infinitamente
             do{
                 var peso = prompt("Introduzca su peso en kg");
             }while(isNaN(peso)==true);
 
+            //Si la altura la pasamos como cadena, la va a pedir
             do{
                 var altura = prompt("Introduzca su altura en centimetros");
             }while(isNaN(altura)==true);
 
-            var altura=altura/100;
             //Pasamos la altura a metros
-
+            var altura=altura/100;
+           
+            //calculamos el imc
             var imc=peso/(altura*altura);
 
+            //Escribimos el imc de cada usuario
             document.write("Su IMC es: "+imc+"<br/>");
 
+            //En arrOpciones, cargamos los elementos <li> del documento
             var arrOpciones = document.getElementsByTagName("li");
 
+            //los introducimos mediante el switch
             switch(true){
                 case(imc<16):
+                //Marcará la frase de <li> en rojo (letras)
                     arrOpciones[0].style.color="red";
                     break;
                 case(imc>=16 && imc<=16.99):
