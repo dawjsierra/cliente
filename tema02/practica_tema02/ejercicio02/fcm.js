@@ -23,7 +23,7 @@ function init(){
     
 
     //Calculamos porcentajes
-    var sesenta = fcm*0.7;
+    var sesenta = fcm*0.6;
     //Fijamos los decimales a dos
     sesenta = sesenta.toFixed(2);
     var setenta = fcm*0.7;
