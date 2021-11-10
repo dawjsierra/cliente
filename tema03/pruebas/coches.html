@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objetos</title>
+        <meta charset="UTF-8">
+        <script>
+            function TaxiRenault(tipoMotor, numeroPasajeros, carga, velocidad){
+                this.tipoMotor = tipoMotor;
+                this.numeroPasajeros = numeroPasajeros;
+                this.carga = carga;
+                this.velocidad = velocidad;
+            }
+
+            function prototipoTaxiRenault(){
+                this.fabricante = "Renault S.A.";
+                this.direccionFabricante = "C/ Paris";
+                this.getCapacidad=function(){
+                    if(tipoMotor=="Diesel"){
+                        return 40;
+                    }else{
+                        return 35;
+                    }
+                }
+                this.variarCarga = function(variación){
+                    this.carga=this.carga+variacion;
+                }
+                this.variarVelocidad = function(variacion){
+                    this.velocidad=this.velocidad+variacion;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+
+        </script>
+    </body>
+</html>
