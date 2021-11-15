@@ -1,8 +1,8 @@
 function init(){
 
     //introducimos datos en el array
-    var actividades = ["Crossfit","Zumba","Bodypump","Spinning","Pilates","Yoga","Kickboxing"];
-    var fisios = ["Marta","Marcos","Sergio","Laura","Paula"];
+    var actividades = ["Crossfit","Zumba","Bodypump","Spinning","Pilates","Yoga"];
+    var fisios = ["Marta","Marcos","Sergio","Laura","Ivan"];
 
     //seleccionamos los elementos con el id de las tablas a escoger
     var tablaAct = document.getElementById("actividades");
@@ -18,19 +18,27 @@ function init(){
     var filasFis = tablaFisios.getElementsByTagName("tr");
 
     //for anidado. Primero recorrerá las filas y pasará a la siguiente columna rellenandolo con el array (random)
-    for(var i = 1; i<7;i++){
-         for(j = 1; j<7;j++){
-            var aleatorio = Math.round(Math.random()*4);
-            filasAct[i].innerHTML += "<td>"+actividades[aleatorio]+"</td>";
-         }
+    for(var i = 1; i<7;i++){//filas
+        for(j = 1; j<7;j++){//columnas
+            //para rellenar un horario "mezclado", pero que sea fijo, he decidido que dependiendo del numero
+            //de iterador se rellene con un valor u otro, para que no cambie de valor nunca ni sea todo igual
+            if(i%2==0){
+                filasAct[i].innerHTML += "<td>"+actividades[i-1]+"</td>";
+            }else{
+                filasAct[i].innerHTML += "<td>"+actividades[j-1]+"</td>";
+            }
+        }
     }
 
     //similar al anterior
-    for(var i = 1; i<10;i++){
-        for(j = 1; j<6;j++){
-            var aleatorio = Math.round(Math.random()*4);
-            filasFis[i].innerHTML += "<td>"+fisios[aleatorio]+"</td>";
-         }
+    for(var i = 1; i<10;i++){//filas
+        for(j = 1; j<6;j++){//columnas
+            if(i%2==0){
+                filasFis[i].innerHTML += "<td>"+fisios[i/2]+"</td>";
+            }else{
+                filasFis[i].innerHTML += "<td>"+fisios[j-1]+"</td>";
+            }
+        }
     }
 
 }

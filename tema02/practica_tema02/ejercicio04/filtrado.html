@@ -6,8 +6,8 @@
         <script>
             //esta función va a escribir las tablas de fisios y actividades
             function init(){
-                var actividades = ["Crossfit","Zumba","Bodypump","Spinning","Kickboxing"];
-                var fisios = ["Marta","Marcos","Sergio","Laura","Paula","Raul"];
+                var actividades = ["Crossfit","Zumba","Bodypump","Spinning","Pilates","Yoga"];
+                var fisios = ["Marta","Marcos","Sergio","Laura","Ivan"];
 
                 
                 var tablaAct = document.getElementById("tablaActividades");
@@ -19,19 +19,24 @@
                 var filasFis = tablaFisios.getElementsByTagName("tr");
 
                 //tabla de actividades
-                for(var i = 1; i<7;i++){
-                    for(j = 1; j<7;j++){
-                        //seleccionamos elementos del array con random
-                        var aleatorio = Math.round(Math.random()*4);
-                        filasAct[i].innerHTML += "<td>"+actividades[aleatorio]+"</td>";
+                for(var i = 1; i<7;i++){//filas
+                    for(j = 1; j<7;j++){//columnas
+                        if(i%2==0){
+                            filasAct[i].innerHTML += "<td>"+actividades[i-1]+"</td>";
+                        }else{
+                            filasAct[i].innerHTML += "<td>"+actividades[j-1]+"</td>";
+                        }
                     }
                 }
 
                 //tabla de fisios
-                for(var i = 1; i<10;i++){
-                    for(j = 1; j<6;j++){
-                        var aleatorio = Math.round(Math.random()*5);
-                        filasFis[i].innerHTML += "<td>"+fisios[aleatorio]+"</td>";
+                for(var i = 1; i<10;i++){//filas
+                    for(j = 1; j<6;j++){//columnas
+                        if(i%2==0){
+                            filasFis[i].innerHTML += "<td>"+fisios[i/2]+"</td>";
+                        }else{
+                            filasFis[i].innerHTML += "<td>"+fisios[j-1]+"</td>";
+                        }
                     }
                 }
             }
@@ -157,7 +162,8 @@
         </table>
         <hr>
         <br>
-        <p>Si desea consultar cualquiera de nuestras actividades o fisios en concreto, márquelos en los siguientes formularios:</p>
+        <p>Si desea consultar cualquiera de nuestras actividades o fisios en concreto, márquelos en los siguientes formularios.<br/>
+            Marque la opción u opciones que desea consultar y seguidamente, pulse en "MOSTRAR".</p>
         <!--Formulario de actividades (checkbox porque se puede escoger varias)-->
         <form id="formulario" name="formAct">
             <label for="actividades">ACTIVIDADES:</label><br/>
@@ -165,7 +171,8 @@
             <input type="checkbox" name="actividades" value="Zumba">ZUMBA<br/>
             <input type="checkbox" name="actividades" value="Bodypump">BODYPUMP<br/>
             <input type="checkbox" name="actividades" value="Spinning">SPINNING<br/>
-            <input type="checkbox" name="actividades" value="Kickboxing">KICKBOXING<br/>
+            <input type="checkbox" name="actividades" value="Pilates">PILATES<br/>
+            <input type="checkbox" name="actividades" value="Yoga">YOGA<br/>
             <input type="button" id="boton1" value="MOSTRAR" onclick="mostrarAct()">
         </form>
         <br/>
@@ -176,8 +183,7 @@
             <input type="radio" name="fisio" value="Marcos">MARCOS<br/>
             <input type="radio" name="fisio" value="Sergio">SERGIO<br/>
             <input type="radio" name="fisio" value="Laura">LAURA<br/>
-            <input type="radio" name="fisio" value="Paula">PAULA<br/>
-            <input type="radio" name="fisio" value="Raul">RAUL<br/>
+            <input type="radio" name="fisio" value="Ivan">IVÁN<br/>
             <input type="button" id="boton2" value="MOSTRAR" onclick="mostrarFis()">
         </form>
         <script>
