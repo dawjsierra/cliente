@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objetos</title>
+        <meta charset="UTF-8">
+        <script>
+            function Animal(nombre){
+                this.nombre = nombre;
+                var patas = 4;
+                this.tipo = "cuadrupedo";
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            Animal.altura = 150;
+            var animal1 = new Animal ("Toby");
+            alert(animal1.nombre);
+            alert(animal1.patas);
+            alert(animal1.tipo);
+            alert(animal1.altura);
+        </script>
+    </body>
+</html>
