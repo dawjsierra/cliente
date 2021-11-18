@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objetos</title>
+        <meta charset="UTF-8">
+        <script>
+            function TaxiRenault(tipoMotor, numeroPasajeros, carga, velocidad){
+                this.tipoMotor = tipoMotor;
+                this.numeroPasajeros = numeroPasajeros;
+                this.carga = carga;
+                this.velocidad = velocidad;
+            }
+
+            function prototipoRenault(){
+                this.fabricante = "Renault S.A.";
+                this.direccionFabricante = "C/ Paris";
+                this.getCapacidad=function(){
+                    if(this.tipoMotor=="Diesel"){
+                        return 40;
+                    }else{
+                        return 35;
+                    }
+                }
+                this.variarCarga = function(variacion){
+                    this.carga=this.carga+variacion;
+                }
+                this.variarVelocidad = function(variacion){
+                    this.velocidad=this.velocidad+variacion;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            //var taxiRenault1 = TaxiRenault("Diesel",4,500,120);
+            TaxiRenault.prototype=new prototipoRenault();
+            //todas las propiedades de prototipoTaxiRenault las vas a guardar en TaxiRenault.prototype
+            var taxiRenault1 = new TaxiRenault("Diesel",4,500,120);
+            alert(taxiRenault1.fabricante);
+            alert(taxiRenault1.getCapacidad());
+            taxiRenault1.variarCarga(-10);
+            alert(taxiRenault1.carga);
+        </script>
+    </body>
+</html>

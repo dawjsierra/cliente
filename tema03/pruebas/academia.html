@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objetos</title>
+        <meta charset="UTF-8">
+        <script>
+            //utilizando una funcion constructora y un prototipo:
+
+            //función constructora: Alumno con propiedades: nombre, edad, intereses(array),materia,importe
+
+            //función prototipo: academia con propiedades: nombreAcademia, direccion y darBienvenida ("Hola, bienvenido a la academia nombreAcademia")
+
+            //usar un boton que al pulsarlo pida los datos del alumno y muestre la bienvenida
+
+            function Alumno(nombre, edad, intereses = [], materia, importe){
+                this.nombre = nombre;
+                this.edad = edad;
+                this.materia = materia;
+                this.intereses = intereses;
+                this.importe = importe;
+            }
+
+            function prototipoAcademia(nombreAcademia, direccion, ciudad){
+                this.nombreAcademia = "Giregolandia";
+                this.direccion = "Pza Europa";
+                this.ciudad = "Zaragoza";
+
+                this.darBienvenida = function() {
+                    alert("Hola, bienvenido a "+this.nombre+" "+this.nombreAcademia);
+                }
+
+                this.nuevoImporte = function(nuevoImporte){
+                    this.importe = this.importe+nuevoImporte;
+                }
+            }
+
+            function registro(){
+                Alumno.prototype = new prototipoAcademia();
+                alumno1 = new Alumno();
+                alumno1.nombre = prompt("Introduce tu nombre");
+                alumno1.edad = prompt("Mete la edad");
+                var intereses = prompt("Introduce los intereses separados por comas");
+                alumno1.interes = intereses.split(",");
+                alumno1.materia = prompt("Di la materia que vas a cursar");
+                alumno1.importe = parseInt(prompt("cuanto vas a gastar"));
+                alumno1.darBienvenida();
+
+                var nuevoImporte= parseInt(prompt("Dime el importe que quieres añadir"));
+                alumno1.nuevoImporte(nuevoImporte);
+                alert(alumno1.importe);
+            }
+
+        </script>
+    </head>
+    <body>
+        <input type="button" value="Registrate" onclick="registro()">
+        <script>
+            
+        </script>
+    </body>
+</html>

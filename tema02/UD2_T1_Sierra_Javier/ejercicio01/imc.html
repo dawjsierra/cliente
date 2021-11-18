@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio01</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Calcula tu IMC</h1><br/>
+        
+        <br/>
+        <!--Escribimos la lista con los parámetros-->
+        <ul>
+            <li> - 16.00: INFRAPESO (delgadez severa)</li>
+            <li> 16.00 - 16.99: INFRAPESO (delgadez moderada)</li>
+            <li> 17.00 - 18.49: INFRAPESO (delgadez aceptable)</li>
+            <li> 18.50 - 24.99: PESO NORMAL</li>
+            <li> 25.00 - 29.99: SOBREPESO</li>
+            <li> 30.00 - 34.99: OBESO (tipo I)</li>
+            <li> 35.00 - 40.00: OBESO (tipo II)</li>
+            <li> + 40.00: OBESO (tipo III)</li>
+        </ul>
+
+        <script>
+            //Si no es un numero lo va a pedir infinitamente
+            do{
+                var peso = prompt("Introduzca su peso en kg");
+            }while(isNaN(peso)==true);
+
+            //Si la altura la pasamos como cadena, la va a pedir
+            do{
+                var altura = prompt("Introduzca su altura en centimetros");
+            }while(isNaN(altura)==true);
+
+            //Pasamos la altura a metros
+            var altura=altura/100;
+           
+            //calculamos el imc
+            var imc=peso/(altura*altura);
+
+            //Escribimos el imc de cada usuario
+            document.write("Su IMC es: "+imc+"<br/>");
+
+            //En arrOpciones, cargamos los elementos <li> del documento
+            var arrOpciones = document.getElementsByTagName("li");
+
+            //los introducimos mediante el switch
+            switch(true){
+                case(imc<16):
+                //Marcará la frase de <li> en rojo (letras)
+                    arrOpciones[0].style.color="red";
+                    break;
+                case(imc>=16 && imc<=16.99):
+                    arrOpciones[1].style.color="red";
+                    break;
+                case(imc>=17 && imc<=18.49):
+                    arrOpciones[2].style.color="red";
+                    break;
+                case(imc>=18.50 && imc<=24.99):
+                    arrOpciones[3].style.color="red";
+                    break;
+                case(imc>=25.00 && imc<=29.99):
+                    arrOpciones[4].style.color="red";
+                    break;
+                case(imc>=30.00 && imc<=34.99):
+                    arrOpciones[5].style.color="red";
+                    break;
+                case(imc>=35.00 && imc<=40.00):
+                    arrOpciones[6].style.color="red";
+                    break;
+                case(imc>40):
+                    arrOpciones[7].style.color="red";
+                    break;
+                default:
+                    document.write("error");
+                    break;
+            }
+        </script>
+    </body>
+</html>
