@@ -3,8 +3,146 @@
     <head>
         <title>EJERCICIO 01</title>
         <meta charset="UTF-8">
+        <script>
+
+            //nos creamos las variables de los contadores para despues iterarlas
+            //van a ser las que cuenten la posicion de la celda
+            var contador = 3;
+            var contador2 = 3;
+
+            //instanciamos la clase Colegio con sus atributos propios
+            function Colegio(nombre, aulas, alumnos){
+                this.nombre = nombre;
+                this.aulas = aulas;
+                this.alumnos = alumnos;
+            }
+
+            //instanciamos la clase Alumno con sus atributos propios
+            function Alumno(dni, nombre, nota){
+                this.dni = dni;
+                this.nombre = nombre;
+                this.nota = nota;
+            }
+
+            //Esta es la función que usaremos para añadir un nuevo colegio a la tabla
+            function addCole(){
+                //obtenemos los valores que hemos introducido en el formulario
+                var nombre = document.getElementById("nombrec").value;
+                var aulas = document.getElementById("aulas").value;
+                var alumnos = document.getElementById("alumnos").value;
+                //metemos en una variable el botón que introduciremos para modificar alumnos
+                //al final del método se explica lo de id=contador y (this.id)
+                var boton = "<input type= 'button' id="+(contador)+" value='modificar' onclick='modificarCole(this.id)'>";
+
+                //obtenemos el elemento que tiene un id llamado "tablaCole"
+                var tablaC = document.getElementById("tablaCole");
+
+                //creamos un nuevo colegio con los parametros pasados
+                var colegio = new Colegio (nombre, aulas, alumnos);
+
+                //introducimos una nueva fila con innerHTML
+                tablaC.innerHTML+="<tr><td>"+nombre+"</td><td>"+aulas+"</td><td>"+alumnos+"</td><td>"+boton+"</td></tr>";
+
+                /*
+                Este contador lo inicalizamos a 3 y lo iteramos de 4 en 4.
+                Inicializa a 3 porque es la posición inicial de la celda que modificaremos (alumnos).
+                Iteramos a 4 porque de la primera celda de "alumnos" a la siguiente, van 4 celdas más.
+                Como esta variable la tenemos en contador, al botón que llama al  método "modificarAlumnos()"
+                se lo ponemos como id.
+                También, cuando llamemos al método, le va a pasar su id. Por lo tanto, ya sabremos
+                que celda concreta vamos a modificar...
+                */
+                contador=contador+4;
+            }
+
+            //le llega su id (celda que se va a modificar)
+            function modificarCole(comp){
+
+                //te pregunta los nuevos alumnos a meter
+                var nuevosAlumnos = prompt("Introduzca los alumnos que hay en el centro");
+
+                //si los nuevos alumnos los pones con caracteres... Te los pedirá de nuevo
+                while(isNaN(nuevosAlumnos)==true || nuevosAlumnos == null || nuevosAlumnos == ''){
+                    nuevosAlumnos = prompt("Introduzcalos de nuevo, debe ser en números");
+                }
+
+                //obtiene la tabla de cole
+                var tablaC = document.getElementById("tablaCole");
+
+                //obtiene las celdas de tabla c
+                var celdas = tablaC.getElementsByTagName("td");
+
+                //ya que celdas es un array que te guarda los elementos de td
+                //le decimos que el texto de la posicion que le hemos pasado por parametro
+                //la modifique a los nuevos alumnos
+                celdas[comp-1].textContent = nuevosAlumnos;
+            }
+
+            //Mismo funcionamiento que el de colegio
+            function addAlumno(){
+                var nombre = document.getElementById("nombreA").value;
+                var dni = document.getElementById("dni").value;
+                var nota = document.getElementById("nota").value;
+                var boton = "<input type= 'button' id="+(contador2)+" value='modificar' onclick='modificarAlumnos(this.id)'>";
+                var tablaA = document.getElementById("tablaAlumno");
+                var alumno = new Alumno(dni, nombre, nota);
+                tablaA.innerHTML+="<tr><td>"+nombre+"</td><td>"+dni+"</td><td>"+nota+"</td><td>"+boton+"</td></tr>";
+                contador2=contador+4;
+            }
+
+            function modificarAlumnos(comp2){
+                var nuevaNota = prompt("Introduzca la nueva nota del alumno/a");
+                //he pensado que la nota media debe ser entre 0 y 10
+                while((isNaN(nuevaNota)==true) || (nuevaNota <0 || nuevaNota>10) || nuevaNota == null || nuevaNota == ''){
+                    nuevaNota = prompt("Introducela de nuevo, debe ser en números y entre 1 y 10");
+                }
+                var tablaA = document.getElementById("tablaAlumno");
+                var celdas = tablaA.getElementsByTagName("td");
+                celdas[comp2-1].textContent = nuevaNota;
+            }
+        </script>
     </head>
     <body>
-        
+        <h1>EJERCICIO 1 - COLEGIOS Y ALUMNOS</h1><br/>
+
+        <h3>COLEGIO</h3>
+        <form name="formCole">
+            <label>NOMBRE</label><br/>
+            <input type="text" id="nombrec" value=""><br/>
+            <label>AULAS</label><br/>
+            <input type="text" id="aulas" value=""><br/>
+            <label>ALUMNOS</label><br/>
+            <input type="text" id="alumnos" value=""><br/>
+            <input type="button" id="botonc" value="AÑADIR" onclick="addCole()">
+        </form>
+        <br/>
+        <table border=1 id="tablaCole">
+            <tr>
+                <th>NOMBRE</th>
+                <th>AULAS</th>
+                <th>ALUMNOS</th>
+                <th>MODIFICAR ALUMNOS</th>
+            </tr>
+        </table>
+        <br/><hr>
+        <h3>ALUMNO</h3>
+        <form name="formAlumno">
+            <label>NOMBRE</label><br/>
+            <input type="text" id="nombreA" value=""><br/>
+            <label>DNI</label><br/>
+            <input type="text" id="dni" value=""><br/>
+            <label>NOTA MEDIA</label><br/>
+            <input type="text" id="nota" value=""><br/>
+            <input type="button" id="botona" value="AÑADIR" onclick="addAlumno()">
+        </form>
+        <br/>
+        <table border=1 id="tablaAlumno">
+            <tr>
+                <th>NOMBRE</th>
+                <th>DNI</th>
+                <th>NOTA MEDIA</th>
+                <th>MODIFICAR NOTA MEDIA</th>
+            </tr>
+        </table>
     </body>
 </html>
