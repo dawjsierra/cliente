@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO 02</title>
+        <meta charset="UTF-8">
+        <script>
+            class Aeropuerto{
+                constructor(nombre, ciudad, vuelos){
+                    this.nombre = nombre;
+                    this.ciudad = ciudad;
+                    this.vuelos = vuelos;
+                }
+            }
+
+            class Vuelo{
+                constructor(codigo, hSalida, mSalida, hLlegada, mLlegada){
+                    this.codigo = codigo;
+
+                    this.llegada = new Date();
+                    this.llegada.setHours(hLlegada);
+                    this.llegada.setMinutes(mLlegada);
+
+                    this.salida = new Date();
+                    this.salida.setMinutes(mSalida);
+                    this.salida.setHours(hSalida);
+                }
+
+                setLlegada(hLlegada, mLlegada){
+                    this.llegada = new Date();
+                    this.llegada.setHours(hLlegada);
+                    this.llegada.setMinutes(mLlegada);
+                }
+
+                setSalida(hSalida, mSalida){
+                    this.salida = new Date();
+                    this.salida = setHours(hSalida);
+                    this.salida = setMinutes(mSalida);
+                    return this.salida;
+                }
+
+                addVuelo(){
+                    var it = 0;
+                    var hSalida = document.getElementById("hsalida");
+                    var mSalida = document.getElementById("msalida");
+                    var hLlegada = document.getElementById("hllegada");
+                    var mLlegada = document.getElementById("mLlegada");
+                    var nombreVuelo = "vuelo"+it;
+                    var (vuelo+it) = new Vuelo(hSalida, mSalida, hLlegada, mLlegada);
+                    var salidas = setSalida(hSalida, mSalida);
+                    it++;
+                    alert(salidas);
+                }
+            }
+
+            
+        </script>
+    </head>
+    <body>
+        <h1>EJERCICIO 2 - AEROPUERTO Y VUELOS</h1>
+        <h3>VUELOS</h3>
+        <form>
+            <label>CODIGO</label>
+            <input type="text" name="codigo" id="codigo" value=""><br/>
+            <label>HORA SALIDA</label>
+            <input type="number" name="hsalida" id="hsalida" value=""><br/>
+            <label>MINUTOS SALIDA</label>
+            <input type="number" name="msalida" id="msalida" value=""><br/>
+            <label>HORA LLEGADA</label>
+            <input type="number" name="hllegada" id="hllegada" value=""><br/>
+            <label>MINUTOS LLEGADA</label>
+            <input type="number" name="mllegada" id="mllegada" value=""><br/>
+            <input type="button" id="botonVuelo" value="AÑADIR" onclick="">
+        </form>
+        <br/>
+        <table border=1>
+            <tr>
+                <th>CODIGO</th>
+                <th>SALIDA</th>
+                <th>LLEGADA</th>
+                <th>MODIFICAR HORA SALIDA</th>
+                <th>MODIFICAR HORA LLEGADA</th>
+            </tr>
+        </table>
+    </body>
+</html>
