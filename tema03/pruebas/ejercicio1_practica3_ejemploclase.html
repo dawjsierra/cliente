@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO 1 U3 PRUEBA</title>
+        <meta charset="UTF-8">
+        <script>
+            function Colegio(nombre, numAulas, numAlumnos, variacion){
+                this.nombre = nombre;
+                this.numAlumnos = numaAlumnos;
+                this.numAulas = numAulas;
+                this.variacion = function modificarAlumno(variacion){
+                    this.numAlumnos = this.Alumnos+variacion;
+                }
+            }
+
+            function crearColegio(){
+                var nombre = document.getElementById("nombreColegio").value;
+                var numAulas = document.getElementById("numAulas").value;
+                var numAlumnos = document.getElementById("numAlumnos").value;
+
+                var tabla = document.getElementById("tablaColegio");
+                if((nombre!="") || (numAulas!="")||(numAlumnos!="")){
+                    var colegio = new Colegio(nombre, numAlumnos, numAulas,0);
+                    var filaColegio = document.createElement("tr");
+                    var cadenaBoton = "<input type='button' value=''Variar alumnos' onclick='modificar(this)'";
+                    filaColegio.innerHTML+="<td>"+colegio.nombre+"</td>";//....
+                }
+            }
+
+            function modificar(celda){
+                var nuevoValor = prompt("nuevo numero:");
+                celda.parentNode.previousSibling.textContent=nuevoValor;
+            }
+        </script>
+    </head>
+    <body>
+        <form id="colegios">
+            <label>Nombre:</label>
+            <input type="text" id="nombreColegio"><br/>
+            <label>Aulas:</label>
+            <input type="text" id="numAulas"><br/>
+            <label>Alumnos:</label>
+            <input type="text" id="numAlumnos"><br/>
+            <input type="button" id="botonColegio" onclick="crearColegio()"><br/>
+        </form>
+    </body>
+</html>
