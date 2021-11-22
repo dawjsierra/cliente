@@ -1,4 +1,4 @@
-function init(){
+function calcularfcm(){
     var edad;
     var sexo;
     var aux;
@@ -44,9 +44,6 @@ function init(){
     li[1].innerHTML += setenta +" - "+ochenta;
     li[2].innerHTML += ochenta +" - "+noventa;
     li[3].innerHTML += noventa +" - "+fcm;
-    document.getElementById("fcm").appendChild(tufcm);
+    document.getElementById("fcmpersonal").appendChild(tufcm);
     document.getElementById("body").appendChild(tabla);
-    
-
-    
 }

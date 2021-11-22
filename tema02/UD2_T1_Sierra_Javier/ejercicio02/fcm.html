@@ -10,7 +10,7 @@
         <br/>
         
         <br/>
-        <div id="fcm">Tu frecuencia cardiaca máxima es: </div>
+        <p id="fcmpersonal">Tu frecuencia cardiaca máxima es: </p>
         <ul id="lista" >
             <!--Porcentajes-->
             <li>Zona de recuperación (60%-70%): </li>
@@ -18,9 +18,6 @@
             <li>Zona anaeróbica (80%-90%): </li>
             <li>Linea roja (90%-100%): </li>
         </ul>
-        <script>
-            //Llamada a la función que nos lo calcula
-            init();
-        </script>
+        <input type="button" id="botonfcm" value="CALCULAR" onclick="calcularfcm()">
     </body>
 </html>
