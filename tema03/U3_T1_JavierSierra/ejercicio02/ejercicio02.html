@@ -7,16 +7,49 @@
     </head>
     <body>
         <h1>EJERCICIO 2 - AEROPUERTO Y VUELOS</h1>
+        <h3>AEROPUERTOS</h3>
+        <form id="formAeros" name="formularioAeropuertos">
+            <label>NOMBRE: </label>
+            <input type="text" id="nombre" value=""><br/>
+            <label>CIUDAD: </label>
+            <input type="text" id="ciudad" value=""><br/>
+            <label>VUELOS DIARIOS: </label>
+            <input type="text" id="vuelos" value=""><br/>
+            <input type="button" id="botonAero" value="AÑADIR" onclick="addAero()">
+        </form>
+        <br/>
+        <table border=1 id="tablaAeros">
+            <tr>
+                <th>NOMBRE</th>
+                <th>CIUDAD</th>
+                <th>VUELOS DIARIOS</th>
+                <th>MODIFICAR VUELOS DIARIOS</th>
+            </tr>
+        </table>
+
+
         <h3>VUELOS</h3>
+        <form id="formVuelos" name="formularioVuelos">
+            <label>CÓDIGO VUELO: </label>
+            <input type="text" id="codigovuelo" value=""><br/>
+            <label>HORA SALIDA: </label>
+            <input type="text" id="horasalida" value=""><br/>
+            <label>MINUTOS SALIDA: </label>
+            <input type="text" id="minsalida" value=""><br/>
+            <label>HORA LLEGADA: </label>
+            <input type="text" id="horallegada" value=""><br/>
+            <label>MINUTOS LLEGADA: </label>
+            <input type="text" id="minllegada" value=""><br/>
             <input type="button" id="botonVuelo" value="AÑADIR" onclick="addVuelo()">
-        <br/><br/>
+        </form>
+        <br/>
         <table border=1 id="tablaVuelos">
             <tr>
                 <th>CODIGO</th>
                 <th>SALIDA</th>
                 <th>LLEGADA</th>
-                <th>MODIFICAR HORA SALIDA</th>
-                <th>MODIFICAR HORA LLEGADA</th>
+                <th>MODIFICAR SALIDA</th>
+                <th>MODIFICAR LLEGADA</th>
             </tr>
         </table>
     </body>
