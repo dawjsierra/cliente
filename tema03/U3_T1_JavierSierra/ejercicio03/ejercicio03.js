@@ -1,6 +1,7 @@
+
 var usuarios = [];
 
-function UsuarioWeb(login, clave, nombre, dni, role){
+function Usuario(login, clave, nombre, dni, role){
     this.login = login;
     this.clave = clave;
     this.nombre = nombre;
@@ -8,15 +9,7 @@ function UsuarioWeb(login, clave, nombre, dni, role){
     this.role = role;
 }
 
-function prototipoUsuarioWeb(){
-    this.login = prompt("Introduce nombre de login");
-    this.clave = prompt("Introduce contraseña");
-    this.nombre = prompt("Introduce tu nombre");
-    this.dni = prompt("Introduce tu DNI");
-    
-}
-
-function UsuarioCliente(peso, altura, edad, sexo, imc, fcm){
+function Cliente(peso, altura, edad, sexo, imc, fcm){
     this.peso = peso;
     this.altura = altura;
     this.edad = edad;
@@ -25,8 +18,9 @@ function UsuarioCliente(peso, altura, edad, sexo, imc, fcm){
     this.fcm = fcm;
 }
 
-function UsuarioAdministrador(){
-
+function Administrador( crearTabla, crearAlta ){
+    this.crearTabla = crearTabla;
+    this.crearAlta = crearAlta;
 }
 
 
@@ -35,13 +29,37 @@ function addCliente(){
     var clave = prompt("Introduce contraseña");
     var nombre = prompt("Introduce tu nombre");
     var dni = prompt("Introduce tu DNI");
-    var role = cliente;
+    var peso = prompt("Introduce nombre de login");
+    var edad = prompt ("edad");
+    var altura = prompt("Introduce contraseña");
+    var fcm = prompt("Introduce tu nombre");
+    var imc = prompt("Introduce tu nombre");
+    var sexo = prompt("Introduce tu DNI");
+    var role = 'cliente';
 
-    var usuario1 = new UsuarioWeb(login, clave, nombre, dni, role);
+    Cliente.prototype = new Usuario( login, clave, nombre, dni, role );
+    var cliente = new Cliente(peso, altura, edad, sexo, imc, fcm);
+    
+    usuarios.push(cliente);
 
 }
 
 function addAdmin(){
-    
+    var login = prompt("Introduce nombre de login");
+    var clave = prompt("Introduce contraseña");
+    var nombre = prompt("Introduce tu nombre");
+    var dni = prompt("Introduce tu DNI");
+    var crearTabla = prompt("¿Crear tabla?");
+    var crearAlta = prompt("¿Crear alta?");
+    var role = 'administrador';
+
+    Administrador.prototype = new Usuario( login, clave, nombre, dni, role );
+    var administrador = new Administrador(crearTabla, crearAlta);
+    usuarios.push(administrador);
 }
 
+function logearse(){
+    for(var i=0; i<=usuarios.length;i++){
+        alert(usuarios[i].role);
+    }
+}
