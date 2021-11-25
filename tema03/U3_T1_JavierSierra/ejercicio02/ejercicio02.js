@@ -53,8 +53,10 @@ function modificarVuelos(celda){
     while(isNaN(numero)){
         numero = prompt("INTRODUCE UN NUEVO NUMERO (DEBE SER EN DIGITO NUMERICO)");
     }
-    //recoge todas las celdas
-    var celdas = document.getElementsByTagName("td");
+    //identifico tablaAeros
+    var tablaAeros = document.getElementById("TablaAeros");
+    //recoge todas las celdas de tablaAeros
+    var celdas = tablaAeros.getElementsByTagName("td");
     //cambiamos el contenido de la celda
     celdas[celda].textContent=numero;
 }
@@ -102,7 +104,7 @@ function addVuelo(){
     var mllegada = document.getElementById("minllegada").value;
 
     //Si los parámetros que le llegan a vuelo no están vacíos funcionará el programa
-    if((vuelo1.codigo!="") && (vuelo1.llegada!="") && (vuelo1.salida!="")){
+    if((codigo!="") && (hllegada!="") && (mllegada!="") && (hsalida!="") && (msalida!="")){
         //creo un objeto de vuelo
         var vuelo1 = new Vuelo(codigo, hsalida, msalida, hllegada, mllegada);
 
@@ -144,8 +146,10 @@ function modificarLlegada(numCelda){
 
     //creo el string aqui, es lo que va a introducirse en la celda
     var nuevaLlegada = horallegada + ":" + minllegada;
-    //accedo a las celdas
-    var celdas = document.getElementsByTagName("td");
+    //identifico la tabla vuelos
+    var tablaVuelos = document.getElementById("tablaVuelos");
+    //accedo a las celdas de tablavuelos
+    var celdas = tablaVuelos.getElementsByTagName("td");
     //justo en la celda concreta cambio su contenido
     celdas[numCelda].textContent=nuevaLlegada;
 }
@@ -160,10 +164,11 @@ function modificarSalida(numCelda){
     }
     var minsalida = prompt("INTRODUCE LOS NUEVOS MINUTOS DE LA HORA DE SALIDA (0 - 59)");
     //Filtrado: Los minutos de salida solo pueden ser numéricos y entre 0 y 59
-    while((isNaN(minsalida)) || (minsalida<0) || (minalida>59)){
+    while((isNaN(minsalida)) || (minsalida<0) || (minsalida>59)){
         horallegada = prompt("INTRODUCE LOS MINUTOA DE SALIDA DE NUEVO. DEBE SER EN DIGITOS NUMERICOS Y ENTRE LOS VALORES 0 A 59");
     }
     var nuevaSalida = horasalida + ":" + minsalida;
-    var celdas = document.getElementsByTagName("td");
+    var tablaVuelos = document.getElementById("tablaVuelos");
+    var celdas = tablaVuelos.getElementsByTagName("td");
     celdas[numCelda].textContent=nuevaSalida;
 }
