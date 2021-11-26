@@ -3,31 +3,13 @@
     <head>
         <title>EJERCICIO 04</title>
         <meta charset="UTF-8">
-        <script>
-            class Empleado{
-                construct(nombre, dni, telefono){
-                    this.nombre = nombre;
-                    this.dni = dni;
-                    this.telefono = telefono;
-                }
-            }
-
-            class Monitor{
-                construct(actividades, semanales, salaComun){
-                    this.actividades = actividades;
-                    this.semanales = semanales;
-                    this.salaComun = salaComun;
-                }
-            }
-
-            function info(){
-                
-            }
-        </script>
+        <script src="ejercicio04.js"></script>
     </head>
     <body>
-        <script>
-
-        </script>
+        <h2>EJERCICIO 4 - GESTIÓN DE EMPLEADOS (FISIOS / MONITORES)</h2>
+        <input type="button" id="crearFis" value="CREAR FISIO" onclick="crearFisio()"><br/>
+        <input type="button" id="crearMon" value="CREAR MONITOR" onclick="crearMonitor()"><br/><br/>
+        <input type="button" id="listarFis" value="LISTAR FISIO" onclick="listarFisios()"><br/>
+        <input type="button" id="listarMon" value="LISTAR MONITORES" onclick="listarMonitores()"><br/>
     </body>
 </html>
