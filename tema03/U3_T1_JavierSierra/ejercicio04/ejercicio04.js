@@ -93,7 +93,7 @@ function listarFisios(){
     //si no hay ningún fisio saltará el aviso y no recorrerá el array
     if(arrFisios.length>0){
         for(var i = 0; i<arrFisios.length; i++){
-            alert("-NOMBRE: "+arrFisios[i].nombre +" -DNI: "+arrFisios[i].dni+" -TELEFONO: "+arrFisios[i].telefono);
+            alert("NOMBRE: "+arrFisios[i].nombre +"\nDNI: "+arrFisios[i].dni+"\nTELEFONO: "+arrFisios[i].telefono);
         }
     }else{
         alert("NO HAY NINGÚN FISIO QUE MOSTRAR...")
@@ -105,7 +105,7 @@ function listarMonitores(){
     //si no hay ningún monitor saltará el aviso y no recorrerá el array
     if(arrMonitores.length>0){
         for(var i = 0; i<arrMonitores.length; i++){
-            alert("-NOMBRE: "+arrMonitores[i].nombre +" -DNI: "+arrMonitores[i].dni+" -TELEFONO: "+arrMonitores[i].telefono+" -ACTIVIDADES: "+arrMonitores[i].actividades+" -SESIONES SEMANALES: "+arrMonitores[i].semanales+" -SESIONES DE SALA COMUN: "+arrMonitores[i].salacomun);
+            alert("NOMBRE: "+arrMonitores[i].nombre +"\nDNI: "+arrMonitores[i].dni+"\nTELEFONO: "+arrMonitores[i].telefono+"\nACTIVIDADES: "+arrMonitores[i].actividades+"\nSESIONES SEMANALES: "+arrMonitores[i].semanales+"\nSESIONES DE SALA COMUN: "+arrMonitores[i].salacomun);
         }
     }else{
         alert("NO HAY NINGÚN MONITOR QUE MOSTRAR...")
