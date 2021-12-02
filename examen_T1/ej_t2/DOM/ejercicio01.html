@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>EJERCICIO 1 - DOM</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <!--
+            1.- A partir de la página web proporcionada y utilizando las funciones DOM, mostrar por pantalla la siguiente información:
+                a)     Número de enlaces de la página
+
+                b)     Dirección a la que enlaza el penúltimo enlace
+
+                c)     Número de enlaces que enlazan a http://prueba
+
+                d)     Número de enlaces del tercer párrafo
+        -->
+
+        <p>
+            Prueba A <a href="http://prueba">enlace A</a>
+            Prueba B <a href="http://prueba2">enlace B</a>
+            Prueba C
+        </p>
+
+        <p>
+            Prueba D <a href="http://prueba">enlace C</a>
+            Prueba E <a href="http://prueba3">enlace D</a>
+            Prueba F
+        </p>
+    
+        <p>
+            Prueba G <a href="http://prueba">enlace G</a>
+            Prueba H <a href="http://prueba4">enlace H</a>
+            Prueba I <a href="http://prueba5">enlace I</a>
+            Prueba J.
+        </p>
+
+        <script>
+
+            //a
+            var enlaces = document.getElementsByTagName("a");
+            var parrafo = document.createElement("p");
+            var a = document.createTextNode("a) Enlaces de la página: "+enlaces.length+"\n");
+
+            parrafo.appendChild(a);
+            document.body.appendChild(parrafo);
+
+            //b
+            var penultimoEnlace = enlaces[enlaces.length-2];
+            var b  = document.createTextNode("b) Direccion a la que enlaza el penúltimo enlace: "+penultimoEnlace+"\n");
+            var parrafo2 = document.createElement("p");
+            parrafo2.appendChild(b);
+            document.body.appendChild(parrafo2);
+
+            //c)
+            var num = 0;
+            for(var i = 0; i<=enlaces.length-1;i++){
+                if(enlaces[i] == "http://prueba/"){
+                    num++;
+                }
+            }
+            var c  = document.createTextNode("c) Numero de enlaces a prueba: "+num+"\n");
+            var parrafo3 = document.createElement("p");
+            parrafo3.appendChild(c);
+            document.body.appendChild(parrafo3);
+
+            //d)
+            var parrafos = document.getElementsByTagName("p");
+            var enlacesParrafo = parrafos[2].getElementsByTagName("a");
+            var d = document.createTextNode("d) Numero de enlaces del tercer parrafo: "+enlacesParrafo.length+"\n");
+            var parrafo4 = document.createElement("p");
+            parrafo4.appendChild(d);
+            document.body.appendChild(parrafo4);
+        </script>
+    </body>
+</html>
