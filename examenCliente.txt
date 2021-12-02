@@ -6,6 +6,9 @@ ex cliente:
 - Que es una direccion URI?
 - Saber distinguir la URI, URL y URN
 - Tema 2 (alguna instruccion, sentencia, tipo de datos...)
+- Motor de busqueda, interfaz...
+- No preguntas rebuscadas
+- Preguntas básicas de lineas generales
 - 25-30 preguntas cortas
 
 
@@ -18,3 +21,4 @@ Como se crea una lista con JS (document.createElement...)
 Mirar ejercicios Flores
 Que coja los datos de un input y que los muestre en una lista
 Comprobacion de exp regulares
+3 ejercicios con codigo y los tendremos que completar con codigo.
