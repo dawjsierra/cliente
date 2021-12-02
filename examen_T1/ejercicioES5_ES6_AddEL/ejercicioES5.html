@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO ES5 PRUEBA</title>
+        <meta charset="UTF-8">
+        <script>
+            function Persona(nombre, dni, edad){
+                this.nombre = nombre;
+                this.dni = dni;
+                this.edad = edad;
+
+                this.mostrarInfo = function(nombre, dni, edad){
+                    alert("Alumno: "+this.nombre+" DNI: "+this.dni+" ");
+                }
+            }
+
+            var listaPersonas = [];
+
+            function crearAlumno(){
+                var nombre = prompt("Nombre:");
+                var dni = prompt("DNI:");
+                var edad = prompt("EDAD:");
+                Persona.prototype = new Alumno(nombre, dni, edad);
+                var asignatura = prompt("Asignatura");
+                var instituto = prompt("Instituto");
+
+                var alumno1 = new Alumno(asignatura, alumno);
+
+                listaPersonas.push(alumno1);
+            }
+
+
+            function listarAlumnos(){
+                for(i = 0; i<listaAlumnos.length; i++){
+                    alert("NOMBRE: "+listaAlumnos[i].nombre + " DNI: "+listaAlumnos[i].dni +" EDAD: "+listaAlumnos[i].edad+" ASIGNATURA: "+listaAlumnos[i].asignatura+" INSTITUTO: "+listaAlumnos[i].instituto);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>EJERCICIO ES5 PRUEBA</h1>
+        <!--
+            ES5/ES6
+            Crea una funcion constructora llamada Persona con campos nombre, dni, edad y un método que muestre la información de una persona en concreto (alert, en una lista... como quieras).
+
+            Crea una funcion constructora llamada Alumno que herede de Persona y añada asignatura e instituto.
+
+            Crea un boton para añadir un array todos los nuevos alumnos.
+            Crea un boton para mostrar todos los alumnos con addEventListener.
+        -->
+
+        <input type="button" id="boton1" 
+
+        <script>
+            document.getElementById("boton1").addEventListener("click",crearAlumno,flase);
+        </script>
+
+    </body>
+</html>

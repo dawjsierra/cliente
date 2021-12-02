@@ -22,3 +22,4 @@ Mirar ejercicios Flores
 Que coja los datos de un input y que los muestre en una lista
 Comprobacion de exp regulares
 3 ejercicios con codigo y los tendremos que completar con codigo.
+Mouseover, mouseclick (Mirar eventos de raton)
