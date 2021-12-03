@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO 03 EVFORM</title>
+        <meta charset="UTF-8">
+        <script>
+            function muestraOculta(parametro){
+                var enlace = document.getElementById(parametro.id);
+                if(enlace.previousElementSibling.style.visibility=="visible"){
+                    enlace.previousElementSibling.style.visibility="hidden";
+                    enlace.textContent="Mostrar contenidos";
+                }else{
+                    enlace.previousElementSibling.style.visibility="visible";
+                    enlace.textContent="Ocultar contenidos";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!--
+            Realiza el ejercicio anterior pasando this como parámetro (y sin pasar un nº 1, 2 o 3). Pista: puedes utilizar la función de DOM previousSibling
+        -->
+
+        <p id="contenidos_1">a</p>
+        <a id="enlace_1" href="#" onclick="muestraOculta(this)">Ocultar contenidos</a><br/>
+        <p id="contenidos_2">b</p>
+        <a id="enlace_2" href="#" onclick="muestraOculta(this)">Ocultar contenidos</a><br/>
+        <p id="contenidos_3">c</p>
+        <a id="enlace_3" href="#" onclick="muestraOculta(this)">Ocultar contenidos</a><br/>
+    </body>
+</html>

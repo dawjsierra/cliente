@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO01 EXPREG</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <!--
+            Utiliza las Expresiones Regulares de JavaScript para crear patrones que te permitan comprobar si una determinada entrada se ajusta a los siguientes formatos:
+            a) Número de teléfono nacional (sin espacios)
+            b) Fecha con formato dd/mm/yyyy (no validar mayor de 31 días ni mayor de 12 meses)
+            c) Código postal (5 dígitos)
+            d) e-mail (formato caracteres@caracteres.caracteres)
+        -->
+
+        <script>
+            //a) Numero telefono
+                var patTlf = /^\d{9}$/;
+                var telefono = "976773445";
+
+                alert(patTlf.test(telefono));
+
+            //b) Fecha dd/mm/yyyy
+                var patFecha = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+                var fecha1 = "01/03/2001";
+                
+                alert(patFecha.test(fecha1));
+
+            //c) Codigo postal
+                var patCp = /^\d{5}$/;
+
+                var cp1 = "50190";
+
+                alert(patCp.test(cp1));
+
+            //d) e-mail
+
+                var patEmail = /^\w+[@]\w+[.]\w+$/;
+
+                var email1 = "javier123@gmail.com";
+
+                alert(patEmail.test(email1));
+        </script>
+    </body>
+</html>

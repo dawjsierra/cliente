@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO 01 EVFORMS</title>
+        <meta charset="UTF-8">
+        <script>
+            function addDisco(){
+                var nombre = document.getElementById("nombre").value;
+                var grupo = document.getElementById("grupo").value;
+                var anyo = document.getElementById("anyo").value;
+                var tipo = document.getElementById("tipo").value;
+                var localizacion = document.getElementById("localizacion").value;
+                var prestado = document.getElementsByName("prestado");
+
+                document.write("NOMBRE: "+nombre+" GRUPO: "+grupo+" AÑO: "+anyo+" TIPO: "+tipo+" LOCALIZACIÓN: "+localizacion+" PRESTADO: "+prestado[0].value+"\n");
+            }
+        </script>
+    </head>
+    <body>
+        <!--
+            Prepara un formulario diseñado para almacenar los siguientes datos de un disco y usa una función y document.write para mostrar la selección realizada.
+            Para cada dato elije el componente de formulario más adecuado.
+
+            a)  Nombre del disco.
+            b)  Grupo de música o cantante.
+            c)  Año de publicación.
+            d)  Tipo de música (podrá ser “rock”, “pop”, “punk” o “indie”);
+            e)  Localización: almacenará un número de estantería.
+            f)  Prestado: almacenará un valor booleano. Por defecto será false.
+        -->
+
+        <form id="formulario">
+            <label>NOMBRE DEL DISCO</label>
+            <input type="text" value="" id="nombre"><br/>
+            <label>GRUPO DE MUSICA O CANTANTE</label>
+            <input type="text" value="" id="grupo"><br/>
+            <label>AÑO DE PUBLICACIÓN</label>
+            <input type="number" value="" id="anyo"><br/>
+            <label>TIPO DE MUSICA</label>
+            <select id="tipo" name="tipo">
+                <option value="1">ROCK</option>
+                <option value="2">POP</option>
+                <option value="3">PUNK</option>
+                <option value="4">INDIE</option>
+            </select><br/>
+            <label>LOCALIZACION</label>
+            <input type="number" value="" id="localizacion"><br/>
+            <label>PRESTADO</label>
+            <input type="radio" value="si" name="prestado" id="prestadosi"/>SI
+            <input type="radio" value="no" name="prestado" id="prestadono"/>NO<br/>
+            <input type="submit" value="ENVIAR" onclick="addDisco()">
+        </form>
+    </body>
+</html>

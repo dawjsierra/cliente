@@ -1,0 +1,4 @@
+a) validar telefono
+b) validar fecha dd/mm/yyyy
+c) validar codigo postal 11111
+d) validar email (loquesea@loquesea.loquesea)

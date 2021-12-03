@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO 05 DOM</title>
+        <meta charset="UTF-8">
+        <script>
+            function enviar(){
+                var respuesta = document.getElementById("respuesta").value;
+                var input = document.getElementsByTagName("input");
+                if(respuesta == "Pedro Sanchez"){
+                    alert("ES CORRECTO!");
+                }else{
+                    alert("NO ES CORRECTO!");
+                    input[0].value="prueba otra vez";
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+        <!--
+            Modificar el siguiente ejemplo de forma que si la respuesta es incorrecta indique: “No es correcto”, e inicialice la caja con el texto “prueba otra vez”.
+        -->
+
+        <h4>Pregunta</h4>
+        <p>¿Quien es el presidente de España?</p>
+        <input type="text" id="respuesta" value="responda aquí">
+        <button type="button" onclick="enviar()">ENVIAR</button>
+        <p id="resultado"></p>
+    </body>
+</html>

@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>EJERCICIO 02 DOM</title>
+        <title>EJERCICIO 03 DOM</title>
         <meta charset="UTF-8">
         <style type = "text/css">
             
         </style>
-        <script type="text/javascript">
-            
+        <script>
+            var contador = 5;
+            function insertar(){
+                var lista = document.getElementById("lista");
+                var elementoLista = document.createElement("li");
+                var elemento = document.createTextNode("Elemento"+contador);
+                elementoLista.appendChild(elemento);
+                lista.appendChild(elementoLista);
+                contador++;
+            }
         </script>
     </head>
     <body>
 
         <!--
-            a)     Cuando el usuario pinche sobre el enlace se debe mostrar el texto.
-            b)     El enlace debe dejar de mostrarse.
+            a)     Cada vez que se pulse el botón se añadan nuevos elementos a la lista.
         -->
 
-        
+        <ul id="lista">
+            <li>Elemento1</li>
+            <li>Elemento2</li>
+            <li>Elemento3</li>
+            <li>Elemento4</li>
+        </ul>
+        <input type="button" value="insertar elemento" onclick="insertar()";>
     </body>
 </html>

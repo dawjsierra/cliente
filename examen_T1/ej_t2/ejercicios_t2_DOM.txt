@@ -1,0 +1,5 @@
+ejercicio 01 - DOM para enlaces del enunciado (enlace http:prueba...)
+ejercicio 02 - Cuando pinches en un enlace el texto oculto se mostrará
+ejercicio 03 - Lista de elementos, que cuando pulsas el boton "añadir" se añade un elemento a la lista
+ejercicio 04 - Plantas añadir y ELIMINAR!
+ejercicio 05 - Verificar nombre presi de españa y si no inicializar la respuesta a "PRUEBA OTRA VEZ"
