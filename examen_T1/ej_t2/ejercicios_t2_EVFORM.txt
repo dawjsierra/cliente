@@ -1,0 +1,7 @@
+ejercicio 01 - Preparar un formulario con distintos tipos de componentes (button, select...) y despues mostrar los datos
+ejercicio 02 - Hacer visible/oculto el contenido con eventos
+ejercicio 03 - Hacer visible/oculto el contenido con previousSibling
+ejercicio 04 - Hacer visible/oculto el contenido con addEventListener
+ejercicio 05 - Al pinchar en una imagen que aparezca otra hasta soltar el raton (imagen de inicio)
+ejercicio 06 - Al pasar raton x pantalla cambiar fondo, lo mismo al pulsar una tecla, mostrar la URL en el div de la foto, mostrar coordenadas del raton
+ejercicio 07 - Textarea limitado a 100 caracteres y que te vaya poniendo debajo cuantos te faltan para el maximo

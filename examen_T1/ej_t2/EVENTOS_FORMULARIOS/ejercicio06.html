@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO 06 EVFORM</title>
+        <meta charset="UTF-8">
+    </head>
+    <script>
+        function mostrarCoord(){
+            var x = event.clientX;
+            var y = event.clientY;
+            alert("COORD: "+x+" - "+y);
+        }
+
+        function mostrarURL(parametro){
+            var imagen = document.getElementById(parametro.id);
+            var bloque = imagen.previousSibling;
+            bloque.textContent += parametro.src;
+        }
+
+        function cambiarFondoTitulo(){
+            var titulo = document.getElementById("titulo");
+            if(titulo.style.backgroundColor==""){
+                titulo.style.backgroundColor="yellow";
+            }else if(titulo.style.backgroundColor=="yellow"){
+                titulo.style.backgroundColor="blue";
+            }else if(titulo.style.backgroundColor=="blue"){
+                titulo.style.backgroundColor="orange";
+            }else if(titulo.style.backgroundColor=="orange"){
+                titulo.style.backgroundColor="";
+            }
+        }
+
+        function cambiarFondo(){
+            if(document.body.style.backgroundColor==""){
+                document.body.style.backgroundColor="blue";
+            }else if(document.body.style.backgroundColor=="orange"){
+                document.body.style.backgroundColor="blue";
+            }
+        }
+
+        function cambiarFondo2(){
+            if(document.body.style.backgroundColor=="blue"){
+                document.body.style.backgroundColor="orange";
+            }else if(document.body.style.backgroundColor=="blue"){
+                document.body.style.backgroundColor="orange";
+            }
+        }
+    </script>
+    <body onmousemove="cambiarFondo()" onkeydown="cambiarFondo2()">
+        <!--
+            Dada la siguiente página html debes conseguir:
+            -   Al hacer click sobre el div título, el fondo del div debe cambiar de color.
+            -   Cuando se pulsa una tecla sobre cualquier parte de la página, el color de fondo de la página cambia de color.
+            -   Cuando se mueve el ratón sobre cualquier parte de la página, el color de fondo de la página cambia de color.
+            -   Cuando se pasa el ratón sobre una imagen se muestra su URL en el DIV.
+            -   Cuando se pulsa sobre una imagen se muestran las coordenadas del ratón respecto del navegador y la pantalla con un alert.
+        -->
+
+        <div id="titulo" onclick="cambiarFondoTitulo()">Prueba de eventos</div>
+        <div>
+            <img src="imagen1.jpg" id="foto1" onmouseover="mostrarURL(this)" onclick="mostrarCoord()">
+        </div>
+        <div>
+            <img src="imagen2.jpg" onmouseover="mostrarURL(this)" onclick="mostrarCoord()">
+        </div>
+    </body>
+</html>

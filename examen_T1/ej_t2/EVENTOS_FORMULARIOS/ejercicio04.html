@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO 04 EVFORM</title>
+        <meta charset="UTF-8">
+        <script>
+            function ocultar1(){
+                var enlace = document.getElementById("enlace_1");
+                if(enlace.previousElementSibling.style.visibility=="visible"){
+                    enlace.previousElementSibling.style.visibility="hidden";
+                    enlace.textContent="Mostrar contenido";
+                }else{
+                    enlace.textContent="Ocultar contenido";
+                    enlace.previousElementSibling.style.visibility="visible";
+                }
+            }
+
+            function mostrar1(){
+                var enlace = document.getElementById("enlace_1");
+            }
+
+            function ocultar2(){
+                var enlace = document.getElementById("enlace_2");
+                if(enlace.previousElementSibling.style.visibility=="visible"){
+                    enlace.previousElementSibling.style.visibility="hidden";
+                    enlace.textContent="Mostrar contenido";
+                    
+                }else{
+                    enlace.previousElementSibling.style.visibility="visible";
+                    enlace.textContent="Ocultar contenido";
+                    
+                }
+            }
+
+            function ocultar3(){
+                var enlace = document.getElementById("enlace_3");
+                if(enlace.previousElementSibling.style.visibility=="visible"){
+                    enlace.previousElementSibling.style.visibility="hidden";
+                    enlace.textContent="Mostrar contenido";
+                    
+                }else{
+                    enlace.previousElementSibling.style.visibility="visible";
+                    enlace.textContent="Ocultar contenido";
+                    
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!--
+            Adapta el ejercicio 2 para no tener que utilizar this, usando manejadores semánticos.
+        -->
+
+        <p id="contenidos_1">a</p>
+        <a id="enlace_1" href="#">Ocultar contenidos</a><br/>
+        <p id="contenidos_2">b</p>
+        <a id="enlace_2" href="#">Ocultar contenidos</a><br/>
+        <p id="contenidos_3">c</p>
+        <a id="enlace_3" href="#">Ocultar contenidos</a><br/>
+        <script>
+            document.getElementById("enlace_1").addEventListener("click",ocultar1,false);
+            document.getElementById("enlace_2").addEventListener("click",ocultar2,false);
+            document.getElementById("enlace_3").addEventListener("click",ocultar3,false);
+        </script>
+    </body>
+</html>

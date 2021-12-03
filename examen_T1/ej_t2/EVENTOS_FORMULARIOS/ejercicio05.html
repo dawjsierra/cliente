@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <title>EJERCICIO 05 EVFORM</title>
+        <meta charset="UTF-8">
+    </body>
+    <body>
+        <!--
+            Crea una página html que contenga una imagen. Mediante el uso de eventos debes conseguir que mientras se pulse sobre la imagen, ésta cambiará por otra imagen. Al dejar de hacer click volverá a verse la imagen original.
+
+            Usa los siguientes eventos:
+            -   MouseDown se produce cuando el usuario presiona el botón del mouse.
+            -   MouseUp se produce cuando el usuario suelta el botón del mouse.
+        -->
+
+        <img src="fotoperros.jpg" alt="fotoperros" id="fotoPerros" onmousedown="cambiarFoto()" onmouseup="volverFoto()">
+
+        <script>
+            function cambiarFoto(){
+                document.getElementById("fotoPerros").src="fotogatos.jpg";
+            }
+
+            function volverFoto(){
+                document.getElementById("fotoPerros").src="fotoPerros.jpg";
+            }
+        </script>
+    </body>
+</html>

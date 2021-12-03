@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO 07 EVFORM</title>
+        <meta charset="UTF-8">
+    </head>
+    <script>
+        function mostrarcaracteres(){
+            var caja = document.getElementById("mensaje").value;
+            var parrafo = document.getElementsByTagName("p");
+
+            var caracteresCaja = caja.length;
+            var cuenta = 100 - caracteresCaja;
+
+            parrafo[0].textContent="Caracteres restantes:"+cuenta;
+            
+        }
+    </script>
+    <body>
+        <!--
+            Crea una caja de texto donde quepan 100 caracteres, y que a medida que escribamos nos avise del número de caracteres que quedan libres.
+        -->
+
+        <textarea id="mensaje" maxlength="100" onkeyup="mostrarcaracteres()"></textarea>
+
+        <p id="caracteres"></p>
+
+
+    </body>
+</html>
