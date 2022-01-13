@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO AJAX 01</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript">
+            function procesaRespuesta(){
+                var parrafo = document.getElementById("parrafo");
+                // 200--> estatus correcto (respuesta correcta) y 4 --> completo
+                if(peticion_http.readyState==4 && peticion_http.status==200){
+                    //si los datos están listos y la respuesta es correcta
+                    parrafo.textContent=peticion_http.responseText;
+                    alert("Datos correctamente recibidos");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p id="parrafo"></p>
+
+        <script>
+            //comprobar que el navegador soporta AJAX
+            if(window.XMLHttpRequest){
+                peticion_http = new XMLHttpRequest();
+                alert("Su navegador soporta AJAX con objetos XMLHttpRequest");
+            }else if(window.ActiveXObject){
+                peticion_http=new ActiveXObject("Microsoft.XMLHTTP");
+                alert("Su navegador soporta AJAX con objetos ActiveXObject");
+            }else{
+                alert("su navegador no soporta AJAX");
+            }
+
+            //ASIGNAR LA FUNCIÓN DE PROCESAMIENTO
+            peticion_http.onreadystatechange=procesaRespuesta
+
+            //PREPARAR LA PETICION
+            //peticion_http.open("GET","noticias.txt",true); //asíncrono
+            peticion_http.open("GET","http://iessantiagohernandez.com",true); //asíncrono
+
+            //ENVIAR PETICION
+            peticion_http.send(null);
+
+        </script>
+    </body>
+</html>
