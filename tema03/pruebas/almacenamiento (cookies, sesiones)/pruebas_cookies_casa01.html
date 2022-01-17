@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PRUEBA COOKIES 01</title>
+        <meta charset="UTF-8">
+        <script>
+            //funcion para borrar las cookies
+
+            function deleteAllCookies(){
+                var cookies = document.cookie.split(";");
+
+                for(var i = 0; i < cookies.length; i++){
+                    var cookie = cookies[i];    //la var cookie es la cookie que trabaja el for del array
+                    var eqPos = 
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            //crear cookies
+            document.cookie = "equipo=barcelona";
+            document.cookie = "jugador_fav=pedri";
+
+            var testvalue="Hola Hola";
+            document.cookie="testcookie="+encodeURIComponent(testvalue);
+
+            //borrar cookie
+            document.cookie="equipo=barcelona; expires=07 Jan 2022 15:51:00 UTC";
+            document.cokie="jugador_fav=";
+        </script>
+    </body>
+</html>
