@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>EJERCICIO FILE READER</title>
+        <script>
+            function leerArchivo(){
+                var fichero = this.files[0];
+                alert(fichero.name);
+                var lector=new FileReader();
+                lector.readAsText(fichero); //abrir en modo lectura
+                lector.onload = function(){
+                    //El texto del archivo se mostrará en el párrafo
+                    document.getElementById("parrafo").textContent=lector.result;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="file" id="archivo">
+        <p id="parrafo"></p>
+            <script>
+                document.getElementById("archivo").addEventListener("change",leerArchivo,false);
+            </script>
+    </body>
+</html>

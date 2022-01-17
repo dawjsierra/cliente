@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO AJAX 01</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript">
+            function procesaRespuesta(){
+                var parrafo = document.getElementById("parrafo");
+                // 200--> estatus correcto (respuesta correcta) y 4 --> completo
+                if(peticion_http.readyState==4 && peticion_http.status==200){
+                    //si los datos están listos y la respuesta es correcta
+                    parrafo.textContent=peticion_http.responseText;
+                    alert("Datos correctamente recibidos");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            
+        </script>
+    </body>
+</html>
