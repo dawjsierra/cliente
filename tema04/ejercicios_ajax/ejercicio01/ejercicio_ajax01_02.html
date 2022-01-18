@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>EJERCICIO AJAX 01</title>
+        <script>
+            //crear el objeto
+            function cambiaContenido(){
+                if(window.XMLHttpRequest){
+                peticion_http = new XMLHttpRequest();
+                }else if(window.ActiveXObject){
+                    peticion_http = new ActiveXObject("Microsoft.XMLHTTP");
+                }else{
+                    alert("su navegador no soporta AJAX");
+                }
+
+                peticion_http.onreadystatechange = procesaRespuesta;
+                peticion_http.open("GET", "holaMundo.txt", true);
+                peticion_http.send(null);
+                
+            };
+
+            function procesaRespuesta(){
+                if(peticion_http.readyState == 4 && peticion_http.status == 200){
+                    document.getElementById("texto").innerHTML = peticion_http.responseText;
+                }
+            }
+        </script>
+    </head>
+    
+    <body>
+        <div id="texto">
+            <h1></h1>
+            <button id="cambiaContenido">CAMBIA EL CONTENIDO</button>
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById("cambiaContenido").addEventListener("click", cambiaContenido, false);
+        </script>
+    </body>
+</html>
