@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>EJERCICIO AJAX 02</title>
+        <script>
+            function verNoticia() {
+                //creamos el objeto. Si el navegador (la ventana), soporta XMLHttprequest
+                if (window.XMLHttpRequest) {
+                    peticion = new XMLHttpRequest(); //peticion será un nuevo objeto XMLHTTPRequest
+
+                    //Si no, si el navegador soporta ActiveXObject
+                } else if (window.ActiveXObject) {
+                    peticion = new ActiveXObject("Miscrosoft.XMLHTTP"); //peticion será un nuevo objeto Microsoft XMLHTTP
+
+                    //Si no soporta ninguno de los dos...
+                } else {
+                    alert("Su navegador no soporta AJAX...");
+                }
+
+                peticion.onreadystatechange = procesarRespuesta;
+                peticion.open ("GET", "noticias.xml", true);
+                peticion.send(null);
+            };
+
+            function procesarRespuesta(){
+                if(peticion.readyState == 4 && peticion.status == 200){
+                    document.getElementById("listaul").innerHTML = peticion.responseText;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <ul id="listaul">
+
+        </ul>
+        <button id="boton">Ver noticias</button>
+        <script type="text/javascript">
+            document.getElementById("boton").addEventListener("click", verNoticia, false);
+        </script>
+    </body>
+
+</html>
