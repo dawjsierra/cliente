@@ -38,20 +38,20 @@
                 }
 
                 peticion.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200){
-                        cargarXML();
+                    if(peticion.readyState == 4 && peticion.status == 200){
+                        cargarXML(peticion);
                     }
 
                 };
 
-                peticion.open("GET", "catalogo.xml", true);
+                peticion.open("GET", "cd_catalog.xml", true);
                 peticion.send(null);
 
             }
 
                 //capturar respuesta que nos va a devolver el servidor
-                function cargarXML(){
-                    var docXML = this.peticion.responseXML;
+                function cargarXML(peticion){
+                    var docXML = peticion.responseXML;
                     var tabla = "<tr><th>ARTISTA</th><th>TITULO</th></tr>";
                     var discos = docXML.getElementsByTagName("CD");
                     for (var i = 0 ; i<discos.length; i++){
