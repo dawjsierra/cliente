@@ -19,26 +19,35 @@
                     alert("Su navegador no soporta AJAX...");
                 }
 
+                //por cada cambio de estado se va a ejecutar la siguiente función (procesarRespuesta)
                 peticion.onreadystatechange = procesarRespuesta;
-                peticion.open ("GET", "noticias.xml", true);
+                //como no vamos a enviar datos: metodo GET, nombre del fichero y como lo vamos a usar de manera asincrona: true
+                peticion.open("GET", "noticias.xml", true);
+                //como usamos GET, en send no metemos ningun parametro
                 peticion.send(null);
             };
 
-            function procesarRespuesta(){
-                if(peticion.readyState == 4 && peticion.status == 200){
-                    document.getElementById("listaul").innerHTML = peticion.responseText;
+            function procesarRespuesta() {
+                if (peticion.readyState == 4 && peticion.status == 200) {
+                    if(peticion.responseXML !== null){
+                        var noticia = peticion.responseXML.getElementsByTagName("cuerpo").innerText;
+                        alert(noticia);
+                    }
                 }
-            }
+            };
         </script>
     </head>
 
     <body>
-        <ul id="listaul">
 
-        </ul>
         <button id="boton">Ver noticias</button>
+        
+        <div id="listaul">
+        </div>
+
+        
         <script type="text/javascript">
-            document.getElementById("boton").addEventListener("click", verNoticia, false);
+                document.getElementById("boton").addEventListener("click", verNoticia, false);
         </script>
     </body>
 
