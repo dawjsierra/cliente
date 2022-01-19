@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO AJAX 02</title>
+    <script>
+        function procesaRespuesta() {
+            if (peticion_http.readyState == 4 && peticion_http == 200) {
+                //datos listos y respuesta correta
+                //var listadoNoticias=peticion_http.responseText.getElementsByTagName("noticia");
+                //da error ya que lo detecta como texto plano
+
+                var listadoNoticias = peticion_http.responseXML.getElementsByTagName("noticia");
+                //aqui el codigo que procesa la respuesta y graba las noticias en html
+                //parrafo.innerHTML+="<br/>"
+
+                for (i = 0; i < listadoNoticias.length; i++) {
+                    //parrafo.innerHTML+=listadoNoticias[i].childNodes[2].textContent+"<br/>";
+                    //parrafo.innerHTML+=listadoNoticias[i].lastElementChild.textContent+"<br/>";
+                    crearItem(listadoNoticias[i].lastElementChild.textContent);
+                    var listado = document.getElementById("lista");
+                    var nuevoElemento = document.createElement("li");
+                }
+                alert("DATOS RECIBIDOS CORRECTAMENTE");
+                //alert(peticion_http.getAllResponseHeaders());
+
+            } else {
+                parrafo.textContent = "EN PROCESO...";
+                alert("en proceso");
+            }
+
+            function crearItem(item) {
+                var listado = document.getElementById("lista");
+                var nuevoElemento = document.createElement("li");
+                var nuevoTexto = document.createTextNode(item);
+                nuevoElemento.appendChild(nuevoTexto);
+                listado.appendChild(nuevoElemento);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p id="parrafo"></p>
+    <ul id="lista"></ul>
+
+    <script type="text/javascript">
+        //crear objeto
+        if(window.XMLHttpRequest){
+            peticion_http = new XMLHttpRequest();
+        }else if(window.activeXObject){
+            peticion_http=new ActiveXObject("Microsoft.XMLHTTP");
+        }else{
+            alert("SU NAVEGADOR NO SOPORTA AJAX");
+        }
+
+        //peticion_http.overrideMimeType('text/xml');
+
+        //asignar la funcion de procesamiento
+        peticion_http.onreadystatechange=procesaRespuesta;
+
+        //preparar la peticion
+        peticion_http.open("GET","noticias.xml", true); //asincrono
+
+        peticion_http.send(null);
+    </script>
+</body>
+
+</html>
