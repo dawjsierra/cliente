@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>EJERICIO 4 AJAX</title>
+        <meta name="author content=">
+        <style>
+            p,button{
+                margin:5px;
+            }
+        </style>
+        <script>
+            function cargarAjax(){
+                var peticion;
+                //crear objeto
+                if(window.XMLHttpRequest){
+                    peticion = new XMLHttpRequest();
+                }else if(window.ActiveXObject){
+                    peticion = new ActiveXObject("Microsoft.XMLHTTP");
+                }else{
+                    alert("Su navegador no soporta AJAX");
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <p>Se cargará el contenido del archivo: animales.xml</p>
+        <button id="btn1">Cargar texto de archivo externo</button>
+        <div id="resultado">Estado de la carga</div>
+
+        <script>
+            document.getElementById("btn1").addEventListener("click",cargarAjax,false);
+        </script>
+    </body>
+</html>

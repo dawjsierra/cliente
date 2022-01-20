@@ -1,0 +1,21 @@
+<animales>
+  <animal>
+    <nombre>Boby</nombre>
+    <especie>Perro</especie>
+    <patas>4</patas>
+
+  </animal>
+  <animal>
+    <nombre>Luca</nombre>
+    <especie>Gato</especie>
+    <patas>4</patas>
+
+  </animal>
+  <animal>
+    <nombre>Chester</nombre>
+    <especie>Períquito</especie>
+    <patas>4</patas>
+
+  </animal>
+
+</animales>
