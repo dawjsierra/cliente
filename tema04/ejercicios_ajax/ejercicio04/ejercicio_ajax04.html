@@ -12,6 +12,7 @@
         <script>
             function cargarAjax(){
                 var peticion;
+                var estado = document.getElementById("resultado");
                 //crear objeto
                 if(window.XMLHttpRequest){
                     peticion = new XMLHttpRequest();
@@ -20,7 +21,22 @@
                 }else{
                     alert("Su navegador no soporta AJAX");
                 }
+
+                if(peticion.readyState !=4 && peticion.status!=200){
+                    estado.innerHTML = ("EN PROCESO");
+                }else{
+                    peticion.onreadystatechange = mostrarInfo;
+                    peticion.open("GET","animales.xml",true);
+                    peticion.send(null);
+                    estado.innerHTML = ("INFORMACION RECIBIDA");
+                }
+
+                function mostrarInfo(){
+                    var docXML = 
+                }
             }
+
+            function 
         </script>
     </head>
 
