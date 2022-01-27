@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO 05</title>
+        <meta charset="UTF-8">
+        <style>
+
+        </style>
+        <script>
+            function cargarJSon(){
+                var peticion;
+                if(window.XMLHttpRequest){
+                    peticion = new XMLHttpRequest();
+                }else if(window.ActiveXObject){
+                    peticion = new ActiveXObject("Microsoft.XMLHTTP");
+                }else{
+                    alert("Su navegador no soporta AJAX");
+                }
+
+                if(peticion.readyState === 4 && peticion.status === 200){
+                    const myObj = JSON.parse(this.responseText);
+                    document.getElementById("demo").innerHTML = myObj.name;
+                    peticion.open("GET","json_demo.json");
+                    peticion.send(null);
+                }
+
+                
+            }
+
+        </script>
+    </head>
+    <body>
+        <button id="boton">MOSTRAR NOMBRE</button>
+        <div id="demo"></div>
+        <script>
+            document.getElementById("boton").addEventListener("click",cargarJSon,false);
+        </script>
+    </body>
+</html>
