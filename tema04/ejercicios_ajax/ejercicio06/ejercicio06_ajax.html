@@ -27,16 +27,17 @@
                 function cargarActiv() {
                     if (peticion.readyState == 4 && peticion.status == 200) {
                         const myObj = JSON.parse(peticion.responseText);
+                        var listadoObjetos = myObj.actividades;
 
                         for (var i = 0; i < myObj.actividades.length; i++) {
 
-                            var nombre = myObj.actividades[i].nombre;
-                            var descripcion = myObj.actividades[i].descripcion;
-                            var tipo = myObj.actividades[i].tipo;
-                            var duracion = myObj.actividades[i].duracion;
-                            var calorias = myObj.actividades[i].calorias;
-                            var beneficios = myObj.actividades[i].beneficios;
-                            var tipoejer = myObj.actividades[i].tipoejer;
+                            var nombre = listadoObjetos[i].nombre;
+                            var descripcion = listadoObjetos[i].descripcion;
+                            var tipo = listadoObjetos[i].tipo;
+                            var duracion = listadoObjetos[i].duracion;
+                            var calorias = listadoObjetos[i].calorias;
+                            var beneficios = listadoObjetos[i].beneficios.join(', ');
+                            var tipoejer = listadoObjetos[i].tipoejer;
 
                             var linea = "<tr><td>" + nombre + "</td><td>" + descripcion + "</td><td>" + tipo +
                                 "</td><td>" + duracion + "</td><td>" + calorias + "</td><td>" + beneficios + "</td><td>" + tipoejer + "</td></tr>";

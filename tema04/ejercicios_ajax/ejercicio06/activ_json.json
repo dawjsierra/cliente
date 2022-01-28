@@ -6,7 +6,11 @@
             "tipo":"cuerpo-mente",
             "duracion":30,
             "calorias":200,
-            "beneficios":"movilidad articular",
+            "beneficios":[
+                "tonificacion",
+                "movilidad articular",
+                "fuerza"
+            ],
             "tipoejer":"movilidad articular"
         },
         {
@@ -15,7 +19,11 @@
             "tipo":" tono-fuerza",
             "duracion":45,
             "calorias":350,
-            "beneficios":" tonificación",
+            "beneficios":[
+                "tonificacion",
+                "movilidad articular",
+                "fuerza"
+            ],
             "tipoejer":"Cardiovascular"
         },
         {
@@ -24,7 +32,11 @@
             "tipo":"tono-fuerza",
             "duracion":55,
             "calorias":400,
-            "beneficios":"fuerza",
+            "beneficios":[
+                "tonificacion",
+                "movilidad articular",
+                "fuerza"
+            ],
             "tipoejer":"elasticidad muscular"
         },
         {
@@ -33,7 +45,11 @@
             "tipo":"box",
             "duracion":50,
             "calorias":300,
-            "beneficios":"fuerza",
+            "beneficios":[
+                "tonificacion",
+                "movilidad articular",
+                "fuerza"
+            ],
             "tipoejer":"elasticidad muscular"
         }
     ]
