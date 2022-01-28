@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>EJERCICIO 05</title>
-        <meta charset="UTF-8">
-        <style>
 
-        </style>
-        <script>
-            function cargarJSon(){
-                var peticion;
-                if(window.XMLHttpRequest){
-                    peticion = new XMLHttpRequest();
-                }else if(window.ActiveXObject){
-                    peticion = new ActiveXObject("Microsoft.XMLHTTP");
-                }else{
-                    alert("Su navegador no soporta AJAX");
-                }
+<head>
+    <title>EJERCICIO 05</title>
+    <meta charset="UTF-8">
+    <style>
 
-                if(peticion.readyState === 4 && peticion.status === 200){
-                    const myObj = JSON.parse(this.responseText);
-                    document.getElementById("demo").innerHTML = myObj.name;
-                    peticion.open("GET","json_demo.json");
-                    peticion.send(null);
-                }
-
-                
+    </style>
+    <script>
+        function cargarJSon() {
+            var peticion;
+            if (window.XMLHttpRequest) {
+                peticion = new XMLHttpRequest();
+            } else if (window.ActiveXObject) {
+                peticion = new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                alert("Su navegador no soporta AJAX...");
             }
 
-        </script>
-    </head>
-    <body>
-        <button id="boton">MOSTRAR NOMBRE</button>
-        <div id="demo"></div>
-        <script>
-            document.getElementById("boton").addEventListener("click",cargarJSon,false);
-        </script>
-    </body>
+            peticion.onreadystatechange = cargarNombre;
+            peticion.open("GET", "json_demo.json", true);
+            peticion.send(null);
+
+            function cargarNombre() {
+                if (peticion.readyState == 4 && peticion.status == 200) {
+                    const myObj = JSON.parse(peticion.responseText);
+                    document.getElementById("demo").innerHTML = myObj.name;
+                }
+            };
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <button id="boton">MOSTRAR NOMBRE</button>
+    <div id="demo"></div>
+    <script>
+        document.getElementById("boton").addEventListener("click", cargarJSon, false);
+    </script>
+</body>
+
 </html>
