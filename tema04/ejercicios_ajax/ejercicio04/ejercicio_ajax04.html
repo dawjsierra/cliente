@@ -3,39 +3,48 @@
     <head>
         <meta charset="UTF-8">
         <title>EJERICIO 4 AJAX</title>
-        <meta name="author content=">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="author" content="">
         <style>
             p,button{
                 margin:5px;
             }
         </style>
         <script>
-            function cargarAjax(){
+            function cargarAJAX(){
+                var res = document.getElementById("resultado");
                 var peticion;
-                var estado = document.getElementById("resultado");
-                //crear objeto
                 if(window.XMLHttpRequest){
                     peticion = new XMLHttpRequest();
                 }else if(window.ActiveXObject){
                     peticion = new ActiveXObject("Microsoft.XMLHTTP");
                 }else{
-                    alert("Su navegador no soporta AJAX");
+                    alert("su navegador no soporta AJAX");
                 }
 
-                if(peticion.readyState !=4 && peticion.status!=200){
-                    estado.innerHTML = ("EN PROCESO");
-                }else{
-                    peticion.onreadystatechange = mostrarInfo;
-                    peticion.open("GET","animales.xml",true);
-                    peticion.send(null);
-                    estado.innerHTML = ("INFORMACION RECIBIDA");
-                }
+                peticion.onreadystatechange = cargarXML;
+                peticion.open("GET","animales.xml",true);
+                peticion.send(null);
 
-                function mostrarInfo(){
-                    //var docXML = 
+                function cargarXML(){
+                    if(peticion.readyState ==4 && peticion.status==200){
+                        var animal = peticion.responseXML.getElementsByTagName("animal");
+                        res.innerHTML="Completado<br/><br>";
+
+                        for(var i = 0; i<animal.length;i++){
+                            var nombre = animal[i].childNodes[1].childNodes[0].nodeValue;
+                            var especie = animal[i].childNodes[3].childNodes[0].nodeValue;
+                            var patas = animal[i].childNodes[5].childNodes[0].nodeValue;
+
+                            texto = "Nombre: "+nombre+"\nEspecie: "+especie+"\nPatas: "+patas+"<br/><hr><br/>";
+                            res.innerHTML += texto;
+                        }
+                        
+                    }else{
+                        res.innerHTML = "En proceso";
+                    }
                 }
             }
-
         </script>
     </head>
 
@@ -45,7 +54,7 @@
         <div id="resultado">Estado de la carga</div>
 
         <script>
-            document.getElementById("btn1").addEventListener("click",cargarAjax,false);
+            document.getElementById("btn1").addEventListener("click",cargarAJAX,false);
         </script>
     </body>
 </html>

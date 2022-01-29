@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <animales>
   <animal>
     <nombre>Boby</nombre>
@@ -17,5 +18,4 @@
     <patas>4</patas>
 
   </animal>
-
 </animales>

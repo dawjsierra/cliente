@@ -1,54 +1,47 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html>
     <head>
+        <title>EJERCICIO 02 AJAX</title>
         <meta charset="UTF-8">
-        <title>EJERCICIO AJAX 02</title>
         <script>
-            function verNoticia() {
-                //creamos el objeto. Si el navegador (la ventana), soporta XMLHttprequest
-                if (window.XMLHttpRequest) {
-                    peticion = new XMLHttpRequest(); //peticion será un nuevo objeto XMLHTTPRequest
-
-                    //Si no, si el navegador soporta ActiveXObject
-                } else if (window.ActiveXObject) {
-                    peticion = new ActiveXObject("Miscrosoft.XMLHTTP"); //peticion será un nuevo objeto Microsoft XMLHTTP
-
-                    //Si no soporta ninguno de los dos...
-                } else {
-                    alert("Su navegador no soporta AJAX...");
+            function cargarXML(){
+                var peticion;
+                if(window.XMLHttpRequest){
+                    peticion = new XMLHttpRequest();
+                }else if(window.ActiveXObject){
+                    peticion = new ActiveXObject("Microsoft.XMLHTTP");
+                }else{
+                    alert("su navegador no soporta AJAX");
                 }
 
-                //por cada cambio de estado se va a ejecutar la siguiente función (procesarRespuesta)
-                peticion.onreadystatechange = procesarRespuesta;
-                //como no vamos a enviar datos: metodo GET, nombre del fichero y como lo vamos a usar de manera asincrona: true
-                peticion.open("GET", "noticias.xml", true);
-                //como usamos GET, en send no metemos ningun parametro
+                peticion.onreadystatechange = cargarNoticias;
+                peticion.open("GET","noticias.xml",true);
                 peticion.send(null);
-            };
 
-            function procesarRespuesta() {
-                if (peticion.readyState == 4 && peticion.status == 200) {
-                    if(peticion.responseXML !== null){
-                        var noticia = peticion.responseXML.getElementsByTagName("cuerpo").innerText;
-                        alert(noticia);
+                function cargarNoticias(){
+                    if(peticion.readyState==4 && peticion.status == 200){
+                        var noticia = peticion.responseXML.getElementsByTagName("noticia");
+                        var noticia1 = noticia[0].childNodes[3].childNodes[0].nodeValue;
+                        var noticia2 = noticia[1].childNodes[3].childNodes[0].nodeValue;
+
+                        var lista = document.getElementById("lista");
+                        var elemento1 = "<li>"+noticia1+"</li>";
+                        var elemento2 = "<li>"+noticia2+"</li>";
+                        
+                        lista.innerHTML+=elemento1;
+                        lista.innerHTML+=elemento2;
+
                     }
                 }
-            };
+            }
         </script>
     </head>
-
     <body>
+        <ul id="lista">
 
-        <button id="boton">Ver noticias</button>
-        
-        <div id="listaul">
-        </div>
-
-        
-        <script type="text/javascript">
-                document.getElementById("boton").addEventListener("click", verNoticia, false);
+        </ul>
+        <script>
+            window.onload = cargarXML();
         </script>
     </body>
-
 </html>

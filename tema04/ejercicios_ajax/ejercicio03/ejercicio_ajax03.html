@@ -14,20 +14,7 @@
             }
         </style>
     
-        <script></script>
-    </head>
-
-    <body>
-
-        <div id="texto">
-            <h1>Colección de Cds</h1>
-            <button id="cargaCatalogo">Carga catálogo</button>
-        </div>
-        <table id="demo"></table>
-
         <script>
-            document.getElementById("cargaCatalogo").addEventListener("click", cargarCatalogo);
-
             function cargarCatalogo(){
                 var peticion;
                 if(window.XMLHttpRequest){
@@ -48,10 +35,8 @@
                 peticion.open("GET", "cd_catalog.xml", true);
                 peticion.send(null);
 
-            }
-
                 //capturar respuesta que nos va a devolver el servidor
-                function cargarXML(peticion){
+                function cargarXML(){
                     var docXML = peticion.responseXML;
                     var tabla = "<tr><th>ARTISTA</th><th>TITULO</th></tr>";
                     var discos = docXML.getElementsByTagName("CD");
@@ -65,7 +50,20 @@
                     document.getElementById("demo").innerHTML = tabla;
                 }
 
-            
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <div id="texto">
+            <h1>Colección de Cds</h1>
+            <button id="cargaCatalogo">Carga catálogo</button>
+        </div>
+        <table id="demo"></table>
+
+        <script>
+            document.getElementById("cargaCatalogo").addEventListener("click", cargarCatalogo);
         </script>
 
     </body>
