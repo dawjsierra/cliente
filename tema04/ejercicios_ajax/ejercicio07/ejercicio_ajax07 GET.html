@@ -15,15 +15,15 @@
                 }
 
                 peticion.onreadystatechange = cargarPHP;
-                peticion.open("POST","gethint.php",true);
-                peticion.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                peticion.open("GET","gethint.php?q=a",true);
+                // peticion.setRequestHeader("Content-Type","application /x-www-form-urlencoded");
 
                 //preparar peticion
                 querystring="q="+document.getElementById("txt1").value;
 
                 //enviar peticion
-                peticion.send(querystring);
-                // peticion.send(null);
+                //peticion.send(querystring);
+                peticion.send(null);
 
                 function cargarPHP(){
                     if(peticion.readyState == 4 && peticion.status ==200){
