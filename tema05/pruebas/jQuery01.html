@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>EJERCICIO "HOLA MUNDO"</title>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            function saludar(){
+                //document.getElementById("parrafo").textContent="Hola mundo";
+
+                //con JQuery:
+                //$("#parrafo").html("Hola mundo");
+
+                //$("#parrafo").html("Hola mundo");
+            }
+
+        </script>
+    </head>
+    <body>
+        <input type="button" id="boton" value="Mostrar saludo">
+        <p id="parrafo"></p>
+        <script>
+            //document.getElementById("boton").addEventListener("click",saludar,false);
+
+
+            //con JQuery:
+            //$("#boton").click(saludar);
+            //tambien se podria hacer así
+            
+                $("#boton").click(function(){
+                    $("#parrafo").html("Hola mundo");
+                });
+            
+        </script>
+    </body>
+</html>
