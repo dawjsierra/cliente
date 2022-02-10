@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery06 - Delegacion eventos</title>
+        <meta charset="UTF-8">
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(iniciar);
+            function iniciar(){
+                //añadir un elemento al final
+                $("#boton1").click(function(){
+                    $("ul").append("<li>Nuevo elemento al final</li>");
+                });
+
+                //cambia el color a los elementos li al hacer click
+                /*$("ul").find("li").click(function(){
+                    $(this).css("color","red");
+                });*/
+
+                //Delegacion de evento click para cambiar el color a todos los li que clicke
+                $("ul").on("click","li",function(){
+                    $(this).css("color","red");
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h2>MANIPULANDO DOM</h2>
+        <ul>
+            <li>Primer item</li>
+            <li>Segundo item</li>
+            <li>Tercer item</li>
+            <li>Cuarto item</li>
+        </ul>
+        <input type="button" id="boton1" value="añadir un elemento al final de la lista"><br/>
+    </body>
+</html>

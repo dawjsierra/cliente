@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>EJERCICIO02 JQUERY</title>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            //$("p").filter(".importante") selecciona todos los parrafos con la clase llamada "importante"
+            //$("p#primero").find("b") devuelve etiquetas con negrita del parrafo con id primero
+
+            //ejercicio
+                //cambia el color a rojo al parrafo tres con el metodo find
+            
+            $(document).ready(inicio);
+            function inicio(){
+                /*$(".importante").find("p"){
+                    ("p").css("color","red");
+                }*/
+
+                //encontrar una posicion determinada del elemento
+                //mostrar el contenido del 3er parrafo
+                    //.eq es como ==
+                alert($("p").eq(2).text());
+
+                //encadenamiento de selecciones
+                $("div#textos")
+                    .find("p")
+                        .eq(0)
+                        .html("Texto cambiado en el primer parrafo")
+                    .end()
+                        .eq(1)
+                        .html("Texto cambiado en el primer parrafo")
+                    
+            }
+        </script>
+    </head>
+    <body>
+        <div id="textos">
+            <p id="primero">Parrafo 1</p><br/>
+            <p>Parrafo 2</p><br/>
+            <p class="importante">Parrafo 3 <b>Hola <i>bonito</i> mundo</b></p><br/>
+        </div>
+    </body>
+</html>

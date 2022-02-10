@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio07 - peticion txt</title>
+        <meta charset="UTF-8">
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(iniciar);
+            function iniciar(){
+                //vamos a cargar un txt del servidor
+                $("#boton").click(function(){
+                    cargarTXT();
+                });
+            }
+
+            function cargarTXT(){
+                $.ajax({
+                    method:"GET",
+                    //dataType:"text",
+                    url:"saludo.txt", //ubicacion del archivo
+                })
+
+                // done significa "cuando esté bien hecho..."
+                .done(function(datos){
+                    //grabar el txt en un parrafo
+                    $("#parrafo").text(datos);
+                    alert("texto grabado con exito!!");
+                })
+                
+                //  fail es "en caso de fallo..."
+                .fail(function(){
+                    alert("Ha existido un error")
+                })
+
+                //  always lo realiza siempre
+                .always(function(){
+                    alert("trabajo realizado");
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" id="boton" value="cargar txt"><br/>
+        <p id="parrafo"></p>
+    </body>
+</html>
