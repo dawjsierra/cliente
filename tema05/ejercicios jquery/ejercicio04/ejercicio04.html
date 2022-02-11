@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>EJERCICIO04 - Manipulando DOM</title>
+        <meta charset="UTF-8">
+        <script src="../jquery-3.6.0.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(iniciar);
+            function iniciar(){
+                $("#boton1").click(function(){
+                    $("ul").remove();
+                });
+                $("#boton2").click(function(){
+                    
+                });
+                $("#boton3").click(function(){
+                    
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h2>MANIPULANDO DOM</h2>
+        <ul>
+            <li>Pimer item</li>
+            <li>Segundo item</li>
+            <li>Tercer item</li>
+            <li>Cuarto item</li>
+        </ul>
+        <p>
+            <input type="button" id="boton1" value="eliminar lista completa"><br/>
+            <input type="button" id="boton2" value="restaurar lista"><br/>
+            <input type="button" id="boton3" value="añadir elemento al final de la lista"><br/>
+            <input type="button" id="boton4" value="añadir elemento al principio de la lista"><br/>
+            <input type="button" id="boton1" value="eliminar ultimo elemento"><br/>
+            <input type="button" id="boton1" value="eliminar primer elemento"><br/>
+            <input type="button" id="boton1" value="decorar colores alternos"><br/>
+        </p>
+    </body>
+</html>
