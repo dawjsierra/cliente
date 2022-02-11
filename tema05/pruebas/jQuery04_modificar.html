@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery04</title>
+        <meta charset="UTF-8">
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(inicio);
+            function inicio(){
+                //Extraer
+                alert($("#primero").html()); //extraigo el codigo html
+                alert($("#primero").text()); //extraigo el texto
+                alert($("#input").val()); //extraer el valor del input
+                //alert($("input").attr("value")); //extraer el valor del input
+
+                //modificar info de un elemento
+                $("p").eq(0).html("Nuevo texto del parrafo");
+                $("input").val("Nuevo valor del input");
+
+                //cambiar el enlace con el texto del input, a traves de un  boton
+                $("#cambiar").click(function(){
+                    $("a").attr({
+                        "title":"IR AL ENLACE",
+                        "href":$("input").filter(":first").val()
+                    });
+                    alert("enlace cambiado");
+                })
+            }
+        </script>
+    </head>
+    <body>
+        <div id="textos">
+            <h1>Cabecera</h1>
+                <p id="primero"><b>Parrafo1</b></p>
+                <p>Parrafo 2</p>
+            <h3>Titulo</h3>
+            <p class="importante">Parrafo3</p>
+            <input type="text" value="texto del input"><br/>
+            <a href="http://www.iessantiagohernandez.com/">Pincha aqui</a><br/>
+            <button id="cambiar">CAMBIAR ENLACE</button>
+        </div>
+    </body>
+</html>

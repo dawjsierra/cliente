@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio07 - peticion txt</title>
+        <meta charset="UTF-8">
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(iniciar);
+            function iniciar(){
+
+                $("#boton").click(function(){
+                    cargarXML();
+                });
+
+                function cargarXML(){
+                    $.ajax({
+                        method:"get",
+                        url:"cd_catalog.xml"
+                    })
+
+                    .done(function(datos){
+                        cargarTabla(datos);
+                        alert("trabajo grabado con exito");
+                    })
+
+                    .fail(function(){
+                        alert("ha existido un error")
+                    })
+
+                    .always(function(){
+                        alert("trabajo realizado");
+                    })
+                }
+
+                function cargarTabla(){
+                    var listaCD = $(dat).find("CD");
+                    for(i=0;i<listaCD.length;i++){
+                        var titulo = $(listaCD).eq(i).find("TITLE").text();
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" id="boton" value="cargar xml"><br/>
+        <table id="tabla" border="1">
+            <tr>
+                <th>TITULO</th>
+                <th>ARTISTA</th>
+                <th>PAIS</th>
+            </tr>
+        </table>
+    </body>
+</html>
