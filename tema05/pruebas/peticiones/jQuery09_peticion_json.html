@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejercicio09 - peticion JSon</title>
+    <meta charset="UTF-8">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(iniciar);
+        function iniciar() {
+
+            $("#boton").click(function () {
+                cargarJSon();
+            });
+        }
+
+        //ESTO NO ES JQUERY!!
+
+        function cargarJSon() {
+            $.ajax({
+                method: "get",
+                url: "activ_json.json"
+            })
+
+            .done(function (datos) {
+                cargarTabla(datos);
+                alert("trabajo grabado con exito");
+            })
+
+            .fail(function () {
+                alert("ha existido un error")
+            })
+
+            .always(function () {
+                alert("trabajo realizado");
+            })
+        }
+
+        function cargarTabla(dat) {
+            //va a convertir el json en javascript (array objetos javascript)
+            //var ficheroJSON=JSON.parse(dat);
+            //nos va a devolver el valor de actividad
+
+            //CUANDO SEA JQUERY NO HACEMOS PARSE XQ LO CONVIERTE AUTOMATICAMENTE
+            //alert(dat[0].nombre);
+
+
+            var elementos = $(dat);
+            for (i = 0; i < elementos.length; i++) {
+                //var actividadN = elementos[i].actividad; en JavaScript
+                var actividadN = elementos.eq(i).prop("nombre"); //en JQuery
+                var listaTipos = elementos.eq(i).prop("tipo");
+                grabarFila(actividadN, listaTipos);
+            }
+        }
+
+        function grabarFila(act, lis) {
+            $("#tabla").append("<tr><td>" + act + "</td><td>" + lis + "</td></tr>")
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="button" id="boton" value="cargar JSON"><br />
+    <table id="tabla" border="1">
+        <tr>
+            <th>ACTIVIDAD</th>
+            <th>TIPO</th>
+        </tr>
+    </table>
+
+</body>
+
+</html>
