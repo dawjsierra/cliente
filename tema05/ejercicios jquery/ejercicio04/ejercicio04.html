@@ -11,10 +11,23 @@
                     $("ul").find("li").empty();
                 });
                 $("#boton2").click(function(){
-                    
+                    $("ul").html("<li>Primer item</li><li>Segundo item</li><li>Tercer item</li><li>Cuarto Item</li>");
                 });
                 $("#boton3").click(function(){
-                    
+                    $("ul").append("<li>nuevo elemento</li>");
+                });
+                $("#boton4").click(function(){
+                    $("ul").prepend("<li>Nuevo elemento</li>");
+                });
+                $("#boton5").click(function(){
+                    $("ul").find("li").filter(":last").remove();
+                });
+                $("#boton6").click(function(){
+                    $("ul").find("li").filter(":first").remove();
+                });
+                $("#boton7").click(function(){
+                    $("ul").find("li").filter(":even").css("color","blue");
+                    $("ul").find("li").filter(":odd").css("color","red");
                 });
             }
         </script>
@@ -32,9 +45,9 @@
             <input type="button" id="boton2" value="restaurar lista"><br/>
             <input type="button" id="boton3" value="añadir elemento al final de la lista"><br/>
             <input type="button" id="boton4" value="añadir elemento al principio de la lista"><br/>
-            <input type="button" id="boton1" value="eliminar ultimo elemento"><br/>
-            <input type="button" id="boton1" value="eliminar primer elemento"><br/>
-            <input type="button" id="boton1" value="decorar colores alternos"><br/>
+            <input type="button" id="boton5" value="eliminar ultimo elemento"><br/>
+            <input type="button" id="boton6" value="eliminar primer elemento"><br/>
+            <input type="button" id="boton7" value="decorar colores alternos"><br/>
         </p>
     </body>
 </html>

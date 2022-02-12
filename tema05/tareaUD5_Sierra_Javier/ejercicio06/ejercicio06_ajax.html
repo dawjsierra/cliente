@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EJERCICIO 6</title>
+    <meta charset="UTF-8">
+    <script>
+
+        //para que solo se ejecute con un click, ini a falso
+        var unclick = false;
+        function cargarJSON() {
+            //si el bool unclick es falso, que se ejecute
+            if (!unclick) {
+                var peticion;
+                if (window.XMLHttpRequest) {
+                    peticion = new XMLHttpRequest();
+                } else if (window.ActiveXObject) {
+                    peticion = new ActiveXObject("Microsoft.XMLHTTP");
+                } else {
+                    alert("Su navegador no soporta AJAX");
+                }
+
+                peticion.onreadystatechange = cargarActiv;
+                peticion.open("GET", "activ_json.json", true);
+                peticion.send(null);
+
+                function cargarActiv() {
+                    if (peticion.readyState == 4 && peticion.status == 200) {
+                        const myObj = JSON.parse(peticion.responseText);
+                        var listadoObjetos = myObj.actividades;
+
+                        for (var i = 0; i < myObj.actividades.length; i++) {
+
+                            var nombre = listadoObjetos[i].nombre;
+                            var descripcion = listadoObjetos[i].descripcion;
+                            var tipo = listadoObjetos[i].tipo;
+                            var duracion = listadoObjetos[i].duracion;
+                            var calorias = listadoObjetos[i].calorias;
+                            var beneficios = listadoObjetos[i].beneficios.join(', ');
+                            var tipoejer = listadoObjetos[i].tipoejer;
+
+                            var linea = "<tr><td>" + nombre + "</td><td>" + descripcion + "</td><td>" + tipo +
+                                "</td><td>" + duracion + "</td><td>" + calorias + "</td><td>" + beneficios + "</td><td>" + tipoejer + "</td></tr>";
+                            document.getElementById("tabla").innerHTML += linea;
+                        }
+                    }
+                }
+                //unclick ahora a true, para que no se ejecute mas
+                unclick = true;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <button id="boton">CARGAR TABLA</button>
+    <div id="demo"></div>
+    <table id="tabla" border=1>
+        <tr>
+            <th>NOMBRE</th>
+            <th>DESCRIPCION</th>
+            <th>TIPO</th>
+            <th>DURACION</th>
+            <th>CALORÍAS</th>
+            <th>BENEFICIOS</th>
+            <th>TIPO</th>
+        </tr>
+    </table>
+    <script>
+        document.getElementById("boton").addEventListener("click", cargarJSON, true);
+    </script>
+</body>
+
+</html>

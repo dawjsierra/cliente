@@ -11,7 +11,7 @@
                 $("#boton").click(function(){
                     cargarXML();
                 });
-
+            }
                 function cargarXML(){
                     $.ajax({
                         method:"get",
@@ -40,8 +40,14 @@
                         //grabarFila(titulo,artista,pais)
                         //situarte en la tabla y con .append(codigo html)
                     }
+                    function grabarFila(titulo, artista, pais)
                 }
-            }
+
+                function grabarFila(titulo, artista, pais){
+                    for(var i = 0; i<titulo.length;i++){
+                        $("#tabla").append("<tr><td>"+titulo.eq(i)+"</td><td>"+artista.eq(i)+"</td><td>"+pais.eq(i)+"</td></tr>");
+                    }
+                }
         </script>
     </head>
     <body>

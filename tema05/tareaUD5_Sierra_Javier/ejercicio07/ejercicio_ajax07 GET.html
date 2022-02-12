@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO AJAX 07</title>
+        <meta charset="UTF-8">
+        <script>
+            function showHint(){
+                var peticion;
+                if(window.XMLHttpRequest){
+                    peticion = new XMLHttpRequest();
+                }else if(window.ActiveXObject){
+                    peticion = new ActiveXObject("Microsoft.XMLHTTP");
+                }else{
+                    alert("Su navegador no soporta AJAX...");
+                }
+
+                peticion.onreadystatechange = cargarPHP;
+                peticion.open("GET","gethint.php?q=a",true);
+                // peticion.setRequestHeader("Content-Type","application /x-www-form-urlencoded");
+
+                //preparar peticion
+                querystring="q="+document.getElementById("txt1").value;
+
+                //enviar peticion
+                //peticion.send(querystring);
+                peticion.send(null);
+
+                function cargarPHP(){
+                    if(peticion.readyState == 4 && peticion.status ==200){
+                        document.getElementById("txtHint").innerHTML = peticion.responseText;
+                    }
+                }
+
+                
+            }
+        </script>
+    </head>
+    <body>
+        <h2>The XMLHTTPRequest Object</h2>
+        <h3>Start typing a name in the input field below:</h3>
+
+        <p>Suggestions:<span id="txtHint"></span></p>
+        <p>First name:<input type="text" id="txt1"></p>
+
+        <div id="resultado"></div>
+        <script>
+            document.getElementById("txt1").addEventListener("keyup",showHint,false);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+{
+    "actividades":[
+        {
+            "nombre":"step",
+            "descripcion":"realización de una secuencia de ejercicios sobre un escalón",
+            "tipo":"cuerpo-mente",
+            "duracion":30,
+            "calorias":200,
+            "beneficios":[
+                "tonificacion",
+                "movilidad articular",
+                "fuerza"
+            ],
+            "tipoejer":"movilidad articular"
+        },
+        {
+            "nombre":"gbody",
+            "descripcion":"ejercicio de gimnasio",
+            "tipo":" tono-fuerza",
+            "duracion":45,
+            "calorias":350,
+            "beneficios":[
+                "tonificacion",
+                "movilidad articular",
+                "fuerza"
+            ],
+            "tipoejer":"Cardiovascular"
+        },
+        {
+            "nombre":"gap",
+            "descripcion":"trabajar tres zonas del cuerpo en concreto: glúteos, abdominales y piernas",
+            "tipo":"tono-fuerza",
+            "duracion":55,
+            "calorias":400,
+            "beneficios":[
+                "tonificacion",
+                "movilidad articular",
+                "fuerza"
+            ],
+            "tipoejer":"elasticidad muscular"
+        },
+        {
+            "nombre":"boxeo",
+            "descripcion":"combate entre 2 personas",
+            "tipo":"box",
+            "duracion":50,
+            "calorias":300,
+            "beneficios":[
+                "tonificacion",
+                "movilidad articular",
+                "fuerza"
+            ],
+            "tipoejer":"elasticidad muscular"
+        }
+    ]
+}
