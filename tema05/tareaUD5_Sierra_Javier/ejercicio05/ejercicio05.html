@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AJAX con JQUERY - Fichero JSON</title>
+    <meta charset="UTF-8">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+
+        //fucncion que se inicia cuando el documento está listo
+        $(document).ready(iniciar);
+
+        function iniciar() {
+
+            //Cargar fichero JSON del servidor
+            $("#boton").click(function () {
+                cargarJSON();
+            })
+        }
+
+        function cargarJSON() {
+            //cargamos el fichero actividades.json
+            $.post(
+                "actividades.json", 
+                //llamamos a la funcion cargarTabla pasandole por parametro los datos
+                function(data){cargarTabla(data);
+            })
+        }
+
+        function cargarTabla(datos){
+            //recogemos los elementos en una variable
+            var elementos = $(datos);
+
+            //hacemos un for recorriendo la variable
+            for(i=0;i<elementos.length;i++){
+                //variable nombres recoge el elemento en la posicion i que tiene como propiedad "nombre" en el json
+                var nombres = elementos.eq(i).prop("nombre");
+                //variable tipos recoge el elemento en la posicion i que tiene como propiedad "tipo" en el json
+                var tipos = elementos.eq(i).prop("tipo");
+                //llamamos a la función escribirFilas, pasandole los parámetros nombres, tipos
+                    //la llamamos dentro del for para que cada iteración, escriba una fila
+                escribirFilas(nombres, tipos);
+            }
+        }
+
+        //escribe las filas en el elemento del body "tabla", mediante .append()
+        function escribirFilas(nombres, tipos){
+            $("#tabla").append('<tr><td>'+nombres+'</td><td>'+tipos+"</td></tr>");
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <input type="button" id="boton" value="CARGAR JSON"><br />
+    <table id="tabla" border="1">
+        <tr>
+            <th>ACTIVIDAD</th>
+            <th>TIPO</th>
+        </tr>
+    </table>
+</body>
+
+</html>
