@@ -6,9 +6,8 @@ $(document).ready( function(){
 
     //nos posicionamos en el elemento con id boton y si hace el evento click...
     $('#boton').click(function (e) {
-        //prevenir errores...
         e.preventDefault();
-        //por consola nos mostrará  "ha hecho clicl"
+        //por consola nos mostrará  "ha hecho click"
         console.log("ha hecho click");
 
         //coge el valor del input con id nombre
