@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>EJERCICIO AJAX - XML</title>
+        <script src="../jquery-3.6.0.min.js"></script>
+        <style>
+            p,button{
+                margin: 5px;
+            }
+        </style>
+        <script>
+            function cargarAJAX(){
+                var peticion;
+                if(window.XMLHttpRequest){
+                    peticion = new XMLHttpRequest();
+                }else if(window.ActiveXObject){
+                    peticion = new ActiveXObject("Microsoft.XMLHTTP");
+                }else{
+                    alert("SU NAVEGADOR NO SOPORTA AJAX.");
+                }
+
+                peticion.onreadystatechange = cargarXML;
+                peticion.open("GET", "animales.xml", true);
+                peticion.send(null);
+
+                function cargarXML(){
+                    if(peticion.status == 200 && peticion.readyState==4){
+                        var animales = peticion.responseXML.getElementsByTagName("animal");
+                        
+                        for(var i = 0; i<animales.length; i++){
+                            var nombre = animales[i].childNodes[1].childNodes[0].nodeValue;
+                            var especie = animales[i].childNodes[3].childNodes[0].nodeValue;
+                            var patas = animales[i].childNodes[5].childNodes[0].nodeValue;
+
+                            var linea = nombre + "<br/>" + especie + "<br/>"+patas;
+
+                            document.body.innerHTML += "<br/><hr><br/>"+linea;
+                            document.getElementById("resultado").innerHTML = "Terminado";
+                        }
+                    }else{
+                        document.getElementById("resultado").innerHTML = "En proceso...";
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <p>Se cargará el archivo de: animales:xml</p>
+        <button id="btn1">CARGAR TEXTO ARCHIVO EXTERNO</button>
+        <div id="resultado">Estado de la carga</div>
+        <script>
+            document.getElementById("btn1").addEventListener("click",cargarAJAX,false);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>EJERCICIO02 - LOCAL STORAGE</title>
+        <meta charset="UTF-8">
+        <script src="../jquery-3.6.0.min.js" type="text/javascript"></script>
+        <script>
+            function generarLocalStorage(){
+                alert("GENERANDO LOS SIGUIENTES LOCALSTORAGE: username, password, email");
+                localStorage.setItem("username","sierrajavier");
+                localStorage.setItem("pasword","12345678");
+                localStorage.setItem("email","sierrajavier@gmail.com");
+
+                localStorage.getItem("username");
+                localStorage.getItem("pasword");
+                localStorage.getItem("email");
+            }
+
+            function eliminarLocalStorage(){
+                alert("HAS PULSADO EL BOTÓN DE ELIMINAR LOCALSTORAGE...");
+
+                //CON LA FUNCION CLEAR PODEMOS BORRAR TODAS DE GOLPE..!
+                localStorage.clear();
+
+                //O UNA A UNA
+                /*
+                    localStorage.removeItem("username");
+                    localStorage.removeItem("pasword");
+                    localStorage.removeItem("email");
+                */
+            }
+        </script>
+    </head>
+    <body>
+        <h1>EJERCICIO 01 - COOKIES</h1>
+        <button id="boton1" type="button">GENERAR LOCAL STORAGE</button>
+        <button id="boton2" type="button">ELIMINAR LOCAL STORAGE</button>
+        <script>
+            document.getElementById("boton1").addEventListener("click", generarLocalStorage, false);
+            document.getElementById("boton2").addEventListener("click", eliminarLocalStorage, false);
+        </script>
+    </body>
+</html>

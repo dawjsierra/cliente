@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>EJERCICIO03 - SESION STORAGE</title>
+    <meta charset="UTF-8">
+    <script src="../jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script>
+        function generarSesionStorage() {
+            sessionStorage.setItem('myCat', 'Tom');
+
+            // Obtiene el campo de texto que vamos a moniterear
+            var field = document.getElementById("field");
+
+            // Verificamos si tenemos algún valor auto guardado
+            // (esto solo ocurrirá si la página es recargada accidentalmente)
+            if (sessionStorage.getItem("autosave")) {
+                // Restaura el contenido al campo de texto
+                field.value = sessionStorage.getItem("autosave");
+            }
+
+            // Espera por cambios en el campo de texto
+            field.addEventListener("change", function () {
+                // Almacena el resultado en el objeto de almacenamiento de sesión
+                sessionStorage.setItem("autosave", field.value);
+            });
+        }
+
+        function eliminarSession(){
+            sessionStorage.clear();
+        }
+    </script>
+</head>
+
+<body>
+    <h1>EJERCICIO 03 - COOKIES</h1>
+    <button id="boton1" type="button">GENERAR SESSION STORAGE</button>
+    <button id="boton2" type="button">ELIMINAR SESSION STORAGE</button>
+    <div id="field"></div>
+    <script>
+        document.getElementById("boton1").addEventListener("click", generarSesionStorage, false);
+        document.getElementById("boton1").addEventListener("click", eliminarSession, false);
+    </script>
+</body>
+
+</html>

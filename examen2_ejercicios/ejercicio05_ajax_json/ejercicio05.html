@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO AJAX</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        function cargarJSON() {
+            //BLOQUE PARA CREAR HTTPREQUEST
+            var peticion_http;
+            if (window.XMLHttpRequest) {
+                peticion_http = new XMLHttpRequest();
+            } else if (window.ActiveXObject) {
+                peticion_http = new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                alert("SU NAVEGADOR NO SOPORTA AJAX");
+            }
+
+            //BLOQUE PARA PREPARAR Y ENVIAR PETI
+            peticion_http.onreadystatechange = procesarRespuesta;
+            peticion_http.open("GET", "activ_json.json", true);
+            peticion_http.send(null);
+
+            //PROCESAR RESPUESTA
+            function procesarRespuesta() {
+                if (peticion_http.readyState == 4 && peticion_http.status == 200) {
+                    const myObj = JSON.parse(peticion_http.responseText);
+                    var listadoObjetos = myObj.actividades;
+
+                    for (var i = 0; i < myObj.actividades.length; i++) {
+                        var nombre = listadoObjetos[i].nombre;
+                        var tipo = listadoObjetos[i].tipo;
+
+                        document.getElementById("tabla").innerHTML += "<tr><td>" + nombre + "</td><td>" + tipo + "</td></tr>";
+                    }
+                }
+            }
+        };
+
+
+    </script>
+</head>
+
+<body>
+
+<input type="button" id="boton" value="CARGAR JSON">
+<table id="tabla" border="1">
+    <tr>
+        <th>ACTIVIDAD</th>
+        <th>TIPO</th>
+    </tr>
+</table>
+<script>
+    document.getElementById("boton").addEventListener("click", cargarJSON, true);
+</script>
+</body>
+</html>

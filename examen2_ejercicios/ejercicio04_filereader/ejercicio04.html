@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EJERCICIO 04 - FILEREADER</title>
+        <meta charser="UTF-8">
+        <script src="../jquery-3.6.0.min.js"></script>
+        <script>
+            function leerArchivo(){
+                //seleccionar el primer archivo
+                var fichero = this.files[0];
+                //var fichero=document.getElementById("archivo").files[0]
+                alert(fichero.name);
+                //permite leer ficheros de forma asincrona
+                var lector = new FileReader();
+                //abrir el archivo modo lectura
+                lector.readAsText(fichero);
+                //document.getElementById("parrafo").textContent=lector.result;
+                lector.onload = function(){
+                    //el texto del archivo se mostrara en el parrafo
+                    
+					var i = 0;
+					var fileContentArray = this.result.split(/\n/);
+					for( i = 0; i < fileContentArray.length; i++){
+					  document.getElementById("parrafo").innerHTML+= fileContentArray[i] + "<br>";
+					}
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="file" id="archivo">
+        <p id="parrafo"></p>
+        <script>
+            document.getElementById("archivo").addEventListener("change", leerArchivo, false);
+        </script>
+    </body>
+</html>

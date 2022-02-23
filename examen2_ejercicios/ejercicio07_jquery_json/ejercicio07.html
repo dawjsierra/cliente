@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>EJERCICIO AJAX - XML</title>
+        <script src="../jquery-3.6.0.min.js"></script>
+        <style>
+            p,button{
+                margin: 5px;
+            }
+        </style>
+        <script>
+            $(document).ready(iniciar);
+
+            function iniciar(){
+                $("#boton").click(function(){
+                    cargarJSON();
+                });
+
+            }
+            
+            function cargarJSON(){
+                $.post(
+                    "activ_json.json",
+                    function(data){cargarTabla(data);
+                    })
+                   
+            }
+
+            function cargarTabla(datos){
+                var elementos = $(datos);
+
+                for(i=0;i<elementos.length;i++){
+                //variable nombres recoge el elemento en la posicion i que tiene como propiedad "nombre" en el json
+                var nombres = elementos.eq(i).prop("nombre");
+                //variable tipos recoge el elemento en la posicion i que tiene como propiedad "tipo" en el json
+                var tipos = elementos.eq(i).prop("tipo");
+                //llamamos a la función escribirFilas, pasandole los parámetros nombres, tipos
+                    //la llamamos dentro del for para que cada iteración, escriba una fila
+                escribirFilas(nombres, tipos);
+            }
+            }
+
+            
+        </script>
+    </head>
+
+    <body>
+        <input type="button" id="boton" value="CARGAR JSON"><br />
+    <table id="tabla" border="1">
+        <tr>
+            <th>ACTIVIDAD</th>
+            <th>TIPO</th>
+        </tr>
+    </table>
+    </body>
+</html>
