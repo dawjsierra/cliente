@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File reader</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function openFile() {
+            // Selecciona el primer archiv
+            var fichero = this.files[0];
+            // var fichero = document.getElementById('file').files
+            alert(`Nombre del fichero: ${fichero.name}`);
+            // Permite leer ficheros de forma asícrona
+            var reader = new FileReader();
+            // Abrir el archivo en modo lectura
+            reader.readAsText(fichero);
+            // document.getElementById('answer').textContent = reader.result;
+            reader.onload = function () {
+                // El texto del archivo se mostrará en el párrafo
+                document.getElementById('answer').innerHTML = reader.result;
+            }
+        };
+    </script>
+
+
+    <label>Adjunta tu fichero!</label><br>
+    <input type="file" id="file">
+    <p id="answer"></p>
+
+    <script>
+        document.getElementById('file').addEventListener('change', openFile);
+    </script>
+</body>
+
+</html>

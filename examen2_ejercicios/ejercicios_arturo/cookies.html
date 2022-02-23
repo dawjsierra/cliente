@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <script>
+        // Crear cookies
+        document.cookie = 'comida_favorita=arroz;max-age=3600';
+        document.cookie = 'color_favorito=amarillo';
+
+        var testValue = 'Hola mundo!';
+        document.cookie = 'testCookie=' + encodeURIComponent(testValue);
+
+        // Cookie con caducidad para el 16 de Diciembre del 2022 a las 20:20
+        var expiresDate = new Date(2022, 02, 22, 13, 30);
+        alert(expiresDate);
+
+        // Cookie con caducidad para el 16 de Diciembre del 2022 a las 20:20
+        document.cookie = 'userName= Max Brown; expires= 18 Dec 2022 15:20:00';
+
+        // Borrar cookie
+        function removeCookie() {
+            document.cookie = 'userName=;max-age=0';
+        }
+
+        // Modificar cookie
+        function editCookie() {
+            document.cookie = 'color_favorito=azul';
+
+            var cookieValue = 'Buenas tardes!';
+            document.cookie = 'testCookie=' + encodeURIComponent(cookieValue);
+        }
+
+        // Leer cookie
+        var listadoCookies = document.cookie;
+        alert(listadoCookies);
+
+        var array = listadoCookies.split(';');
+        for (let i = 0; i < array.length; i++) {
+            alert(array[i]);
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Borrar Cookie" onclick="removeCookie();">
+    <input type="button" value="Editar Cookie" onclick="editCookie();">
+</body>
+
+</html>

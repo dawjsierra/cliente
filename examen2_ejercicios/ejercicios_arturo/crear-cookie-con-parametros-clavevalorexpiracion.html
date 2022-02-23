@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function setCookie() {
+        var cname = document.getElementById("cname").value;
+        var cvalue = document.getElementById("cvalue").value;
+        var exdays = document.getElementById("exdays").value;
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        location.reload();
+    }
+</script>
+
+<body>
+    <form action="pagina_destino.php" method=post name="formulario1">
+        <input type="text" id="cname" name="cname" placeholder="clave"><br><br>
+        <input type="text" id="cvalue" name="cvalue" placeholder="valor"><br><br>
+        <input type="text" id="exdays" name="exdays" placeholder="dias expiracion">
+    </form>
+    <p><button type="submit" onclick="setCookie()">Enviar formulario</button></p>
+
+</body>
+
+</html>
